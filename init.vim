@@ -68,24 +68,21 @@ cmap <C-P> <up>
 cmap <C-N> <down>
 
 " save on ctrl-s
-map <leader>ss :w<CR>
+nmap <leader>ss :w<CR>
 
 " save on ctrl-s
-map <leader>sq :wq<CR>
+nmap <leader>sq :wq<CR>
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
 noremap ^" 0 Just in case you need to go to the very beginning of a line
 
 " search and replace with confirmation
-map <leader>fw :%s//gc<left><left><left>
+nmap <leader>fw :%s//gc<left><left><left>
 
 " FZF
 map <C-P> :GFiles<CR>
 imap <C-P> <esc> :GFiles<CR>
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <Tab> coc#refresh()
 
 " onedark theme
 colorscheme onedark
