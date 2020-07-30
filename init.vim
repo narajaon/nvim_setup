@@ -46,6 +46,15 @@ set mouse=a
 " remap leader
 let mapleader = " "
 
+" go to next error
+nmap <silent> <leader>ge <Plug>(ale_next_wrap)
+
+" open netrwhist
+nmap <silent> <leader>ff :Ex<cr>
+
+" open test file
+nmap <silent> <leader>ft :vs %:h.test.js<cr>
+
 " search recurrence in files
 let wordUnderCursor=expand("<cword>")
 nmap <leader>fr :Ag <C-R><C-W>
@@ -59,15 +68,17 @@ cmap <C-P> <up>
 cmap <C-N> <down>
 
 " save on ctrl-s
-map <C-S> :w<CR>
-imap <C-S> <esc>:w<CR>
+map <leader>ss :w<CR>
+
+" save on ctrl-s
+map <leader>sq :wq<CR>
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
 noremap ^" 0 Just in case you need to go to the very beginning of a line
 
 " search and replace with confirmation
-map <C-f> :%s//gc<left><left><left>
+map <leader>fw :%s//gc<left><left><left>
 
 " FZF
 map <C-P> :GFiles<CR>
@@ -80,4 +91,3 @@ inoremap <silent><expr> <Tab> coc#refresh()
 colorscheme onedark
 
 source ~/.config/nvim/ftplugin/javascript.vim
-source ~/.config/nvim/ftplugin/vue.vim
