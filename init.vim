@@ -42,6 +42,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set mouse=a
+set tags=tags
 
 " remap leader
 let mapleader = " "
