@@ -47,38 +47,45 @@ set tags=tags
 " remap leader
 let mapleader = " "
 
+" go to next error
+nmap <silent> <leader>ge <Plug>(ale_next_wrap)
+
+" open netrwhist
+nmap <silent> <leader>ff :Ex<cr>
+
+" open test file
+nmap <silent> <leader>ft :vs %:h.test.js<cr>
+
 " search recurrence in files
 let wordUnderCursor=expand("<cword>")
 nmap <leader>fr :Ag <C-R><C-W>
 
 " remap jump to def and jump to ref
 nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
 
 " ctrl p in command line to search in hist
 cmap <C-P> <up>
 cmap <C-N> <down>
 
 " save on ctrl-s
-map <C-S> :w<CR>
-imap <C-S> <esc>:w<CR>
+nmap <leader>ss :w<CR>
+
+" save on ctrl-s
+nmap <leader>sq :wq<CR>
 
 " Move across wrapped lines like regular lines
-noremap 0 ^ " Go to the first non-blank character of a line
-noremap ^ 0 " Just in case you need to go to the very beginning of a line
+noremap 0 ^" Go to the first non-blank character of a line
+noremap ^" 0 Just in case you need to go to the very beginning of a line
 
 " search and replace with confirmation
-map <C-f> :%s//gc<left><left><left>
+nmap <leader>fw :%s//gc<left><left><left>
 
 " FZF
 map <C-P> :GFiles<CR>
 imap <C-P> <esc> :GFiles<CR>
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <Tab> coc#refresh()
-
 " onedark theme
 colorscheme onedark
 
 source ~/.config/nvim/ftplugin/javascript.vim
-source ~/.config/nvim/ftplugin/vue.vim
