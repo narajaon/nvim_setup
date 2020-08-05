@@ -37,6 +37,7 @@ call plug#end()            " required
 
 " basic conf
 set relativenumber
+set termguicolors
 set number
 set tabstop=2
 set shiftwidth=2
@@ -44,12 +45,18 @@ set expandtab
 set mouse=a
 set tags=tags
 syntax on
+set nohlsearch
+
+autocmd WinNew * wincmd L
 
 " remap leader
 let mapleader = " "
 
 " add one space after comment
 let g:NERDSpaceDelims = 1
+
+" change fzf default layout
+let g:fzf_layout = { 'window': 'vnew' }
 
 " open netrwhist
 nmap <silent> <leader>ff :Ex<cr>
@@ -79,7 +86,6 @@ nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
 
 " FZF
 map <C-P> :GFiles<CR>
-imap <C-P> <esc> :GFiles<CR>
 
 " onedark theme
 colorscheme onedark
