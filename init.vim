@@ -47,7 +47,7 @@ set tags=tags
 syntax on
 set nohlsearch
 
-autocmd WinNew * wincmd L
+autocmd FileType help,fugitive wincmd L
 
 " remap leader
 let mapleader = " "
@@ -56,7 +56,7 @@ let mapleader = " "
 let g:NERDSpaceDelims = 1
 
 " change fzf default layout
-let g:fzf_layout = { 'window': 'vnew' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " open netrwhist
 nmap <silent> <leader>ff :Ex<cr>

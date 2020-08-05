@@ -10,14 +10,12 @@ let g:coc_global_extensions = [
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
-" open coc-diagnostic
-nmap <silent> <leader>ge :<c-u>CocList diagnostics<cr>
-
 " open coc-refactor
-nmap <silent> <leader>gr <Plug>(coc-refactor)
+nmap <silent>gr <Plug>(coc-refactor)
 
 " Show all diagnostics.
-nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+set signcolumn=yes
+nnoremap <silent>ge :<C-u>CocList diagnostics<cr>
 
 " remap gotos
 nmap <silent>gd <Plug>(coc-definition)
