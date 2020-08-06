@@ -12,23 +12,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" use fzf preview for coc-vim
+Plug 'antoinemadec/coc-fzf'
+
 " auto pairs
 Plug 'jiangmiao/auto-pairs'
-
-" vim-polyglot for more syntax hl
-Plug 'sheerun/vim-polyglot'
 
 " onedark.vim theme
 Plug 'joshdick/onedark.vim'
 
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" linting
-Plug 'dense-analysis/ale'
-
-" vim vue
-Plug 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -47,6 +41,10 @@ set tags=tags
 syntax on
 set nohlsearch
 
+" go directly to 5th line in fugitive
+cmap G<cr> G<cr> \| 5gg
+
+" open help and fugitive in anover vertical split
 autocmd FileType help,fugitive wincmd L
 
 " remap leader
@@ -64,18 +62,9 @@ nmap <silent> <leader>ff :Ex<cr>
 " open test file
 nmap <silent> <leader>ft :vs %:h.test.js<cr>
 
-" search recurrence in files
-nmap <leader>fr :Ag <C-R><C-W>
-
 " ctrl p in command line to search in hist
 cmap <C-P> <up>
 cmap <C-N> <down>
-
-" save on ctrl-s
-nmap <leader>ss :w<CR>
-
-" save on ctrl-s
-nmap <leader>sq :wq<CR>
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
