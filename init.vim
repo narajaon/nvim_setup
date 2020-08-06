@@ -21,6 +21,9 @@ Plug 'jiangmiao/auto-pairs'
 " onedark.vim theme
 Plug 'joshdick/onedark.vim'
 
+" onedark.vim theme
+Plug 'morhetz/gruvbox'
+
 " syntax HL
 Plug 'sheerun/vim-polyglot'
 
@@ -30,7 +33,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " Put your non-Plugin stuff after this line
-
 
 " basic conf
 set relativenumber
@@ -65,6 +67,12 @@ nmap <silent> <leader>ff :Ex<cr>
 " open test file
 nmap <silent> <leader>ft :vs %:h.test.js<cr>
 
+" search and replace with confirmation
+nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
+
+" search and replace with confirmation
+nmap <leader>fr :Ag<cr>
+
 " ctrl p in command line to search in hist
 cmap <C-P> <up>
 cmap <C-N> <down>
@@ -72,9 +80,6 @@ cmap <C-N> <down>
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
 noremap ^" 0 Just in case you need to go to the very beginning of a line
-
-" search and replace with confirmation
-nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
 
 " FZF
 map <C-P> :GFiles<CR>
@@ -84,3 +89,4 @@ colorscheme onedark
 
 source ~/.config/nvim/ftplugin/javascript.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/statusline.vim
