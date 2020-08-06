@@ -21,6 +21,9 @@ Plug 'jiangmiao/auto-pairs'
 " onedark.vim theme
 Plug 'joshdick/onedark.vim'
 
+" syntax HL
+Plug 'sheerun/vim-polyglot'
+
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
