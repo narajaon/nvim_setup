@@ -3,8 +3,9 @@ let g:coc_global_extensions = [
             \'coc-json',
             \'coc-tsserver',
             \'coc-git',
+            \'coc-eslint',
+            \'coc-react-refactor',
             \]
-
 
 " go to next error
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
