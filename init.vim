@@ -8,6 +8,9 @@ Plug 'unblevable/quick-scope'
 " fugitive
 Plug 'tpope/vim-fugitive'
 
+" Async dispatch
+Plug 'tpope/vim-dispatch'
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -46,47 +49,20 @@ set tags=tags
 syntax on
 set nohlsearch
 
-" go directly to 5th line in fugitive
-cmap G<cr> G<cr> \| 5gg
-
 " open help and fugitive in anover vertical split
-autocmd FileType help,fugitive wincmd L
-
-" remap leader
-let mapleader = " "
+autocmd FileType qf,help,fugitive wincmd L
 
 " add one space after comment
 let g:NERDSpaceDelims = 1
 
 " change fzf default layout
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" open netrwhist
-nmap <silent> <leader>ff :Ex<cr>
-
-" open test file
-nmap <silent> <leader>ft :vs %:h.test.js<cr>
-
-" search and replace with confirmation
-nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
-
-" search and replace with confirmation
-nmap <leader>fr :Ag<cr>
-
-" ctrl p in command line to search in hist
-cmap <C-P> <up>
-cmap <C-N> <down>
-
-" Move across wrapped lines like regular lines
-noremap 0 ^" Go to the first non-blank character of a line
-noremap ^" 0 Just in case you need to go to the very beginning of a line
-
-" FZF
-map <C-P> :GFiles<CR>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
 
 " onedark theme
 colorscheme onedark
 
-source ~/.config/nvim/ftplugin/javascript.vim
+source ~/.config/nvim/remap.vim
 source ~/.config/nvim/coc.vim
+source ~/.config/nvim/cocScript.vim
+source ~/.config/nvim/testName.vim
 source ~/.config/nvim/statusline.vim

@@ -2,5 +2,6 @@
   "tsserver.npm": "/usr/local/bin/npm",
   "javascript.suggestionActions.enabled": false,
   "javascript.validate.enable": false,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "tslint.run": "onSave"
 }
