@@ -2,6 +2,9 @@ call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
+" Testing util
+Plug 'vim-test/vim-test'
+
 " quickscope
 Plug 'unblevable/quick-scope'
 
@@ -55,11 +58,14 @@ autocmd FileType qf,help,fugitive wincmd L
 " add one space after comment
 let g:NERDSpaceDelims = 1
 
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
 " change fzf default layout
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
 
 " onedark theme
-colorscheme onedark
+colorscheme gruvbox
 
 source ~/.config/nvim/remap.vim
 source ~/.config/nvim/coc.vim

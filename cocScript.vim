@@ -6,15 +6,17 @@ function s:formatLine(_, val)
   if match(a:val, 'PASS\|FAIL')
     return trim(a:val)
   endif
-  return ''
 endfun
 
 function FormatErrors(ars)
   let l:lines = split(execute(':!yarn test:unit '.a:ars), '\n')
-  let l:formatedLines = map(l:lines, function('s:formatLine'))
+  " let l:formatedLines = map(l:lines, function('s:formatLine'))
+  let l:formatedLines = filter(l:lines, {_,val -> !match(val, 'PASS\|FAIL')})
 
-  return formatedLines
+  " return formatedLines
+  execute Dispatch 
 endfun
 
 " wrap in FZF
-command! -nargs=* -complete=file Ftest :call fzf#run(fzf#wrap({'source' : FormatErrors(<q-args>), 'sink': 'e'}))
+" command! -nargs=* -complete=file Ftest :call fzf#run(fzf#wrap({'source' : FormatErrors(<q-args>), 'sink': 'e'}))
+command! -nargs=* -complete=file Ftest :call FormatErrors(<q-args>)

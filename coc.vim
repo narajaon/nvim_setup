@@ -4,7 +4,6 @@ let g:coc_global_extensions = [
             \'coc-tsserver',
             \'coc-git',
             \'coc-eslint',
-            \'coc-jest',
             \'coc-react-refactor',
             \]
 

@@ -30,5 +30,14 @@ cmap <C-N> <down>
 noremap 0 ^" Go to the first non-blank character of a line
 noremap ^" 0 Just in case you need to go to the very beginning of a line
 
+" Switch to last-active tab
+if !exists('g:Lasttab')
+    let g:Lasttab = 1
+    let g:Lasttab_backup = 1
+endif
+autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+nmap <silent>gl :exe "tabn " . g:Lasttab<cr>
+
 " FZF
 map <C-P> :GFiles<CR>
