@@ -61,14 +61,11 @@ let g:NERDSpaceDelims = 1
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
 
-" change fzf default layout
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
-
 " onedark theme
 colorscheme gruvbox
 
 source ~/.config/nvim/remap.vim
+source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/coc.vim
-source ~/.config/nvim/cocScript.vim
 source ~/.config/nvim/testName.vim
 source ~/.config/nvim/statusline.vim

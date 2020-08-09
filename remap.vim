@@ -38,6 +38,3 @@ endif
 autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
 autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 nmap <silent>gl :exe "tabn " . g:Lasttab<cr>
-
-" FZF
-map <C-P> :GFiles<CR>
