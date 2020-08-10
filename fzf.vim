@@ -9,21 +9,18 @@ map <C-P> :GFiles<CR>
 function NonNull(nu)
   return a:nu < 0 ? 0 : a:nu
 endfun
- 
+
 function GenerateJump()
   let Bufpath = {v -> expand("#".v.":p")}
-  let stringified = map(getjumplist()[0], 'printf("%s:%s:%s", Bufpath(v:val.bufnr), v:val.lnum, v:val.col)')
+  let sanitized = filter(copy(getjumplist()[0]), {i,v -> filereadable(bufname(v.bufnr))})
+  let stringified = map(sanitized, 'printf("%s:%s:%s", Bufpath(v:val.bufnr), v:val.lnum, v:val.col)')
   return stringified
 endfun
 
 function GoToJump(line)
   let splited = split(a:line, ':')
-  if (filereadable(splited[0]))
-    exe "e " . splited[0]
-    call setpos('.', [bufnr('%'), splited[1], splited[2], 0])
-  el
-    echoer "fzf-jump: no such file"
-  endif
+  exe "e " . splited[0]
+  call setpos('.', [bufnr('%'), splited[1], splited[2], 0])
 endfun
 
 " jumps
