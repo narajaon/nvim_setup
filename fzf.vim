@@ -16,10 +16,6 @@ function GenerateJump()
   return stringified
 endfun
 
-function BatPreview(arg)
-  call bat a:arg
-endfun
-
 function GoToJump(line)
   let splited = split(a:line, ':')
   if (filereadable(splited[0]))
