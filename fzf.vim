@@ -1,3 +1,5 @@
+" TODO : add default fzf cursor position
+
 " change default layout
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
 
@@ -20,10 +22,13 @@ endfun
 
 function GoToJump(line)
   let splited = split(a:line, ':')
-  exe "e " . splited[0]
-  call setpos('.', [bufnr('%'), splited[1], splited[2], 0])
+  if (filereadable(splited[0]))
+    exe "e " . splited[0]
+    call setpos('.', [bufnr('%'), splited[1], splited[2], 0])
+  el
+    echoer "fzf-jump: no such file"
+  endif
 endfun
 
 " jumps
-
 map <nowait><leader>j :call fzf#run(fzf#vim#with_preview(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': '--tac' })))<cr>
