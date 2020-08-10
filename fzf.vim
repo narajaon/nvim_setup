@@ -7,11 +7,16 @@ map <C-P> :GFiles<CR>
 function NonNull(nu)
   return a:nu < 0 ? 0 : a:nu
 endfun
-
+ 
 function GenerateJump()
   echo getjumplist()
-  let stringified = map(getjumplist()[0], {i, v -> 'bat '. bufname(v.bufnr) . ' -r ' . NonNull(str2nr(v.lnum) - 10) . ':' . (str2nr(v.lnum) + 10)})
-  return stringified
+  let Bufpath = {v -> expand("#".v.":p")}
+  let stringified = map(getjumplist()[0], 'printf("%s -H %s", Bufpath(v:val.bufnr), v:val.lnum)')
+  return reverse(stringified)
+endfun
+
+function BatPreview(arg)
+  call bat a:arg
 endfun
 
 function GoToJump(line)
@@ -19,4 +24,4 @@ endfun
 
 " jumps
 
-map <nowait><leader>j :call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': [ '--preview', 'eval ${}']}))<cr> 
+map <nowait><leader>j :call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--preview', "bat '{}' --color always --theme='OneHalfDark'"]}))<cr> 
