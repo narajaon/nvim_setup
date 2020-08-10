@@ -9,10 +9,9 @@ function NonNull(nu)
 endfun
  
 function GenerateJump()
-  echo getjumplist()
   let Bufpath = {v -> expand("#".v.":p")}
-  let stringified = map(getjumplist()[0], 'printf("%s -H %s", Bufpath(v:val.bufnr), v:val.lnum)')
-  return reverse(stringified)
+  let stringified = map(getjumplist()[0], 'printf("%s:%s:%s", Bufpath(v:val.bufnr), v:val.lnum, v:val.col)')
+  return stringified
 endfun
 
 function BatPreview(arg)
@@ -20,8 +19,11 @@ function BatPreview(arg)
 endfun
 
 function GoToJump(line)
+  let splited = split(a:line, ':')
+  exe "e " . splited[0]
+  call setpos('.', [bufnr('%'), splited[1], splited[2], 0])
 endfun
 
 " jumps
 
-map <nowait><leader>j :call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--preview', "bat '{}' --color always --theme='OneHalfDark'"]}))<cr> 
+map <nowait><leader>j :call fzf#run(fzf#vim#with_preview(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': '--tac' })))<cr>

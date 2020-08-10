@@ -52,6 +52,10 @@ set tags=tags
 syntax on
 set nohlsearch
 
+" keep jumps
+nnoremap <silent>n :<C-u>execute "keepjumps norm! " . v:count1 . "n"<CR>
+nnoremap <silent>N :<C-u>execute "keepjumps norm! " . v:count1 . "N"<CR>
+
 " open help and fugitive in anover vertical split
 autocmd FileType qf,help,fugitive wincmd L
 
