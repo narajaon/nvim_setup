@@ -1,8 +1,17 @@
 " remap enter
-nnoremap <enter> @@
+nnoremap <enter> @:
 
 " remap leader
 let mapleader = " "
+
+" files
+map <C-P> :GFiles<CR>
+
+" save rebind
+map <c-k> :w<cr>
+
+" normal mode in term
+tnoremap <leader>n <c-\><c-n>
 
 " go directly to 5th line in fugitive
 cmap G<cr> G<cr> \| 5gg
