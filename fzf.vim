@@ -10,8 +10,6 @@ function CompareJumpLists(fzfList)
   let juList = filter(split(execute(':ju'), '\n')[1:], {i,v -> v != '>'})
   let jumpList = reverse(juList)
   let fzfList = reverse(a:fzfList)
-  echo len(jumpList)
-  echo len(fzfList)
   let formated = map(jumpList, {i,v -> printf('%3s %s', split(v)[0], split(fzfList[i])[0])})
 
   return reverse(formated)
@@ -41,5 +39,5 @@ function GoToJump(line)
 endfun
 
 " jumps
-map <nowait><leader>j :call fzf#run(fzf#vim#with_preview(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': '--tac' })))<cr>
+map <nowait><leader>j :call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac', '--preview', '$MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}'] }))<cr>
 " map <nowait><leader>j :call GenerateJump()<cr>
