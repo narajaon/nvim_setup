@@ -4,6 +4,7 @@ let s:curPosition = 0
 
 function UpNTimes()
   let l:i = 0
+  exe "sleep " . "20ms"
   while i < s:curPosition
     call feedkeys("\<c-p>", 't')
     let l:i = l:i + 1
@@ -44,7 +45,7 @@ endfun
 
 function fzf#jump()
   let s:curPosition = 0
-  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac', '--preview', 'BAT_THEME="1337" $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}' ] }))
+  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac', '--preview', 'FZF_USE_DEFAULT="1" $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}' ] }))
   call UpNTimes()
 endfun
 

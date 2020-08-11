@@ -64,6 +64,9 @@ autocmd FileType qf,help,fugitive wincmd L
 " add one space after comment
 let g:NERDSpaceDelims = 1
 
+" netrw doesn't affect jumps
+let g:netrw_keepj = ""
+
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
 
