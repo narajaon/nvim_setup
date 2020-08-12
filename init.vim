@@ -58,7 +58,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
+      \ 'bg':      ['fg', 'GruvboxBg1'],
       \ 'hl':      ['fg', 'Comment'],
       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
@@ -84,9 +84,8 @@ if !exists('g:Lasttab')
 endif
 
 aug narajaon#aug
-  au DirChanged,BufNew,BufEnter * call SetCurDir()
-
-  autocmd FileType qf,help,fugitive wincmd L
+  au BufWritePost,DirChanged,BufNew,BufEnter * call SetCurDir()
+  au FileType qf,help,fugitive wincmd L
 
   " go to last tab
   autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
@@ -108,6 +107,7 @@ colorscheme gruvbox
 
 source ~/.config/nvim/remap.vim
 source ~/.config/nvim/fzf.vim
+source ~/.config/nvim/fzf_jump.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/testName.vim
 source ~/.config/nvim/statusline.vim
