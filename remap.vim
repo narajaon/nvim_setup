@@ -5,7 +5,9 @@ nnoremap <enter> @:
 let mapleader = " "
 
 " files
+command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#vim#with_preview(fzf#wrap({'options': ['--layout=reverse'] })), <bang>0)
 map <C-P> :GFiles<CR>
+map <leader><C-P> :GFiles!<CR>
 
 " save rebind
 map <c-k> :w<cr>

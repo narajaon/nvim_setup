@@ -1,12 +1,41 @@
+" Vim global plugin for correcting typing mistakes
+" Last Change:  2000 Oct 15
+" Maintainer: narajaon <fabienrajaonarison@gmail.com>
+" License:	This file is placed in the public domain.
+
 " change default layout
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 let s:curPosition = 0
 
-function UpNTimes()
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+ 
+  let height = 20
+  let width = 120
+  let horizontal = 1
+  let vertical = 1
+ 
+  let opts = {
+        \ 'relative': 'cursor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+ 
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
+function UpNTimes(n)
   let l:i = 0
-  exe "sleep " . "20ms"
-  while i < s:curPosition
-    call feedkeys("\<c-p>", 't')
+  
+  " gives the popup time to load, autocmd isn't as reliable
+  exe "sleep " . "15ms"
+
+  while i < a:n
+    call feedkeys("\<c-j>", 'n')
     let l:i = l:i + 1
   endwhile
 endfun
@@ -16,7 +45,7 @@ function CompareJumpLists(fzfList)
   let jumpList = reverse(juList)
   let s:curPosition = match(jumpList, '^>') 
   let fzfList = reverse(a:fzfList)
-  let formated = map(jumpList, {i,v -> printf('%3s %s', split(v)[0], split(fzfList[i])[0])})
+  let formated = map(jumpList, {i,v -> printf('%2s %s', split(v)[0], split(fzfList[i])[0])})
   return reverse(formated)
 endfun
 
@@ -45,8 +74,16 @@ endfun
 
 function fzf#jump()
   let s:curPosition = 0
-  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac', '--preview', 'FZF_USE_DEFAULT="1" $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}' ] }))
-  call UpNTimes()
+  let s:saved_layout = g:fzf_layout
+  let s:save_cpo = &cpo
+  set cpo&vim
+
+  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac','--reverse', '--preview', 'FZF_USE_DEFAULT="1" $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}' ] }))
+  call UpNTimes(s:curPosition)
+
+  let g:fzf_layout = s:saved_layout
+  let &cpo = s:save_cpo
+  unlet s:save_cpo
 endfun
 
 " jumps
