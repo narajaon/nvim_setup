@@ -54,6 +54,8 @@ set nohlsearch
 
 " default layout
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
+
+" Customize fzf colors to match your color scheme
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
@@ -61,14 +63,13 @@ let g:fzf_colors =
       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
       \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
+      \ 'info':    ['fg', 'netrwComment'],
+      \ 'border':  ['fg', 'GruvboxBg4'],
+      \ 'prompt':  ['fg', 'netrwDir'],
+      \ 'pointer': ['fg', 'netrwDir'],
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] }
-
 
 " keep jumps
 nnoremap <silent>n :<C-u>execute "keepjumps norm! " . v:count1 . "n"<CR>
@@ -76,8 +77,22 @@ nnoremap <silent>N :<C-u>execute "keepjumps norm! " . v:count1 . "N"<CR>
 nnoremap <silent>} :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
 nnoremap <silent>{ :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 
-" open help and fugitive in anover vertical split
-autocmd FileType qf,help,fugitive wincmd L
+" go to last tab
+if !exists('g:Lasttab')
+  let g:Lasttab = 1
+  let g:Lasttab_backup = 1
+endif
+
+aug narajaon#aug
+  au DirChanged,BufNew,BufEnter * call SetCurDir()
+
+  autocmd FileType qf,help,fugitive wincmd L
+
+  " go to last tab
+  autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+  autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+  nmap <silent>gl :exe "tabn " . g:Lasttab<cr>
+aug end
 
 " add one space after comment
 let g:NERDSpaceDelims = 1

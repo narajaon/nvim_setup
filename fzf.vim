@@ -5,6 +5,8 @@
 
 " change default layout
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+let s:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "FZF_USE_DEFAULT='1' $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}" ]
 let s:curPosition = 0
 
 function! FloatingFZF()
@@ -72,13 +74,13 @@ function GoToJump(line)
   call setpos('.', [bufnr('%'), lno, col, 0])
 endfun
 
-function fzf#jump()
+function fzf#jump(options, isFullscreen)
   let s:curPosition = 0
   let s:saved_layout = g:fzf_layout
   let s:save_cpo = &cpo
   set cpo&vim
 
-  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': ['--tac','--reverse', '--preview', 'FZF_USE_DEFAULT="1" $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}' ] }))
+  call fzf#run(fzf#wrap({ 'source': GenerateJump(), 'sink': function('GoToJump'), 'options': a:options }, a:isFullscreen))
   call UpNTimes(s:curPosition)
 
   let g:fzf_layout = s:saved_layout
@@ -87,4 +89,5 @@ function fzf#jump()
 endfun
 
 " jumps
-map <nowait><leader>j :call fzf#jump()<cr>
+command! -bang -nargs=0 Jump call fzf#jump(s:fzf_jump_options, <bang>0)
+map <nowait><leader>j :Jump<cr>

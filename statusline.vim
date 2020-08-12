@@ -9,10 +9,6 @@ function GetFormated()
   return s:formated
 endfun
 
-aug narajaon#aug
-  au DirChanged,BufNew,BufEnter * call SetCurDir()
-aug end
-
 set statusline=
 set statusline+=%#LineNr#
 set statusline+=\ %f\ 
