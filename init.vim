@@ -27,7 +27,7 @@ Plug 'jiangmiao/auto-pairs'
 " onedark.vim theme
 Plug 'joshdick/onedark.vim'
 
-" onedark.vim theme
+" gruvbox.vim theme
 Plug 'morhetz/gruvbox'
 
 " syntax HL

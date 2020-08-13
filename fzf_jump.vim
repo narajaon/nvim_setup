@@ -1,5 +1,4 @@
 " Vim global plugin for correcting typing mistakes
-" Last Change:  2000 Oct 15
 " Maintainer: narajaon <fabienrajaonarison@gmail.com>
 " License:	This file is placed in the public domain.
 
