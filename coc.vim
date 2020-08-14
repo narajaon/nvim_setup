@@ -23,8 +23,8 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
 " go to next quickfix
-nmap <silent> ]g :cnext<cr>
-nmap <silent> [g :cprev<cr>
+nmap <silent> ]q :cnext<cr>
+nmap <silent> [q :cprev<cr>
 
 " Show all diagnostics.
 nmap <silent>ge :<C-u>CocFzfList diagnostics<cr>
