@@ -36,6 +36,8 @@ Plug 'sheerun/vim-polyglot'
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'takac/vim-hardtime'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " Put your non-Plugin stuff after this line
