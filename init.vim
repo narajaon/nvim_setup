@@ -113,3 +113,4 @@ source ~/.config/nvim/fzf_jump.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/testName.vim
 source ~/.config/nvim/statusline.vim
+source ~/.config/nvim/hardtime.vim

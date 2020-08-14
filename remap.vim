@@ -12,6 +12,9 @@ map <leader><C-P> :GFiles!<CR>
 " save rebind
 map <c-k> :w<cr>
 
+" save rebind
+imap <c-k> <esc>:w<cr>
+
 " normal mode in term
 tnoremap <leader>n <c-\><c-n>
 
