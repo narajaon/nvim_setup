@@ -1,8 +1,8 @@
 let s:formated = ''
 
 function SetCurDir()
-  let l:cwd = getcwd()
-  let s:formated = get(split(l:cwd, '/')[-1:], 0, 'root')
+  let cwd = getcwd()
+  let s:formated = get(split(cwd, '/')[-1:], 0, 'root')
 endfun
 
 function GetFormated()

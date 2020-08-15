@@ -22,10 +22,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
-" go to next quickfix
-nmap <silent> ]q :cnext<cr>
-nmap <silent> [q :cprev<cr>
-
 " Show all diagnostics.
 nmap <silent>ge :<C-u>CocFzfList diagnostics<cr>
 

@@ -54,52 +54,9 @@ set tags=tags
 syntax on
 set nohlsearch
 
-" default layout
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['fg', 'GruvboxBg1'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'netrwComment'],
-      \ 'border':  ['fg', 'GruvboxBg4'],
-      \ 'prompt':  ['fg', 'netrwDir'],
-      \ 'pointer': ['fg', 'netrwDir'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
-
-" keep jumps
-nnoremap <silent>n :<C-u>execute "keepjumps norm! " . v:count1 . "n"<CR>
-nnoremap <silent>N :<C-u>execute "keepjumps norm! " . v:count1 . "N"<CR>
-nnoremap <silent>} :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
-nnoremap <silent>{ :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
-
-" go to last tab
-if !exists('g:Lasttab')
-  let g:Lasttab = 1
-  let g:Lasttab_backup = 1
-endif
-
-aug narajaon#aug
-  au BufWritePost,DirChanged,BufNew,BufEnter * call SetCurDir()
-  au FileType qf,help,fugitive wincmd L
-
-  " go to last tab
-  autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
-  autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
-  nmap <silent>gl :exe "tabn " . g:Lasttab<cr>
-aug end
-
 " add one space after comment
 let g:NERDSpaceDelims = 1
-
-" netrw doesn't affect jumps
-let g:netrw_keepj = ""
+let g:netrw_liststyle = 3
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
@@ -107,6 +64,7 @@ let test#strategy = "dispatch"
 " onedark theme
 colorscheme gruvbox
 
+source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/remap.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/fzf_jump.vim

@@ -5,15 +5,15 @@ nnoremap <enter> @:
 let mapleader = " "
 
 " files
-command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#vim#with_preview(fzf#wrap({'options': ['--layout=reverse'] })), <bang>0)
+let s:fzf_gfiles_options = ["--layout=reverse", "--preview", "bat {} --theme=TwoDark --color=always"]
+command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#wrap({'options': s:fzf_gfiles_options}), <bang>0)
 map <C-P> :GFiles<CR>
-map <leader><C-P> :GFiles!<CR>
 
 " save rebind
 map <c-k> :w<cr>
 
 " save rebind
-imap <c-k> <esc>:w<cr>
+inoremap <nowait><c-k> <esc>:w<cr>
 
 " normal mode in term
 tnoremap <leader>n <c-\><c-n>
@@ -23,9 +23,6 @@ cmap G<cr> G<cr> \| 5gg
 
 " remap CTRL-W
 nmap <leader>w <C-W>
-
-" open netrwhist
-nmap <silent> <leader>ff :Ex<cr>
 
 " search and replace with confirmation
 nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
@@ -56,8 +53,19 @@ cnoremap <C-F> <Right>
 " delete character under cursor
 cnoremap <C-D> <Del>
 
-" back one word
+" back and forth one word
 cmap <A-b> <S-Left>
-
-" forward one word
 cmap <A-f> <S-Right>
+
+" view current folder
+map <silent><leader>cd :let @a=expand("%:h") \| 20Lex \| /%<cr>
+
+" go to prev/next quickfix
+nmap <silent> ]q :cnext<cr>
+nmap <silent> [q :cprev<cr>
+
+" keep jumps
+nnoremap <silent>n :<C-u>execute "keepjumps norm! " . v:count1 . "n"<CR>
+nnoremap <silent>N :<C-u>execute "keepjumps norm! " . v:count1 . "N"<CR>
+nnoremap <silent>} :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
+nnoremap <silent>{ :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
