@@ -1,3 +1,12 @@
+" unmap digraphs
+cmap <c-k> <Nop>
+
+" save rebind
+map <c-k> :w<cr>
+
+" save rebind
+inoremap <nowait><c-k> <esc>:w<cr>
+
 " remap enter
 nnoremap <enter> @:
 
@@ -8,12 +17,6 @@ let mapleader = " "
 let s:fzf_gfiles_options = ["--layout=reverse", "--preview", "bat {} --theme=TwoDark --color=always"]
 command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#wrap({'options': s:fzf_gfiles_options}), <bang>0)
 map <C-P> :GFiles<CR>
-
-" save rebind
-map <c-k> :w<cr>
-
-" save rebind
-inoremap <nowait><c-k> <esc>:w<cr>
 
 " normal mode in term
 tnoremap <leader>n <c-\><c-n>
@@ -54,8 +57,8 @@ cnoremap <C-F> <Right>
 cnoremap <C-D> <Del>
 
 " back and forth one word
-cmap <A-b> <S-Left>
-cmap <A-f> <S-Right>
+cmap <nowait><A-b> <S-Left>
+cmap <nowait><A-f> <S-Right>
 
 " view current folder
 map <silent><leader>cd :let @a=expand("%:h") \| 20Lex \| /%<cr>

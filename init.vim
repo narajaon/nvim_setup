@@ -53,10 +53,14 @@ set mouse=a
 set tags=tags
 syntax on
 set nohlsearch
+" set laststatus=0
+set ttimeoutlen=0
+
+filetype plugin on
 
 " add one space after comment
 let g:NERDSpaceDelims = 1
-let g:netrw_liststyle = 3
+" let g:netrw_liststyle = 3
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
