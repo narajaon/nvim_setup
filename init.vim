@@ -68,11 +68,11 @@ let test#strategy = "dispatch"
 " onedark theme
 colorscheme gruvbox
 
-source ~/.config/nvim/autocmd.vim
-source ~/.config/nvim/remap.vim
-source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/fzf_jump.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/testName.vim
-source ~/.config/nvim/statusline.vim
-source ~/.config/nvim/hardtime.vim
+source ~/.config/nvim/tweaks/autocmd.vim
+source ~/.config/nvim/tweaks/remap.vim
+source ~/.config/nvim/tweaks/fzf.vim
+source ~/.config/nvim/tweaks/fzf_jump.vim
+source ~/.config/nvim/tweaks/coc.vim
+source ~/.config/nvim/tweaks/testName.vim
+source ~/.config/nvim/tweaks/statusline.vim
+source ~/.config/nvim/tweaks/hardtime.vim
