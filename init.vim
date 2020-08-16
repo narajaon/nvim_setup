@@ -71,6 +71,7 @@ let test#strategy = "dispatch"
 " onedark theme
 colorscheme gruvbox
 
+source ~/.config/nvim/tweaks/onestatus.vim
 source ~/.config/nvim/tweaks/autocmd.vim
 source ~/.config/nvim/tweaks/remap.vim
 source ~/.config/nvim/tweaks/fzf.vim

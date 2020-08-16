@@ -9,4 +9,4 @@ function GetTestName()
 endfunction
 
 " open test file
-nmap <silent> <leader>ft :execute "vs " . GetTestName()<cr>
+nmap <silent> <leader>ft <Cmd>execute "vs " . GetTestName()<cr>

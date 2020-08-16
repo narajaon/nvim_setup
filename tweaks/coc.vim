@@ -16,14 +16,14 @@ function! s:show_documentation()
 endfunction
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
 
 " go to next error
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
 " Show all diagnostics.
-nmap <silent>ge :<C-u>CocFzfList diagnostics<cr>
+nmap <silent>ge <Cmd><C-u>CocFzfList diagnostics<cr>
 
 " remap gotos
 nmap <silent>gd <Plug>(coc-definition)
