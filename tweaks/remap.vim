@@ -61,6 +61,10 @@ cmap <nowait><A-b> <S-Left>
 cmap <nowait><A-f> <S-Right>
 
 " go to prev/next quickfix
+nmap <silent> ]l :lnext<cr>
+nmap <silent> [l :lprev<cr>
+
+" go to prev/next quickfix
 nmap <silent> ]q :cnext<cr>
 nmap <silent> [q :cprev<cr>
 

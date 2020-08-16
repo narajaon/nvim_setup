@@ -1,6 +1,6 @@
 aug narajaon#aug
   au BufWritePost,DirChanged,BufNew,BufEnter * call SetCurDir()
-  au FileType qf,help,fugitive wincmd L
+  au FileType qf,help,fugitive,man wincmd L
 
   " go to last tab
   if !exists('g:lastTab')
