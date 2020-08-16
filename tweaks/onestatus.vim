@@ -1,3 +1,14 @@
+let s:formated = ''
+
+function SetCurDir()
+  let cwd = getcwd()
+  let s:formated = get(split(cwd, '/')[-1:], 0, 'root')
+endfun
+
+function s:getFormated()
+  return s:formated
+endfun
+
 fun! s:wrap_in_quotes(text)
   return '"' . escape(a:text, '"') . '"'
 endfun
@@ -11,8 +22,6 @@ fun! s:apply(line_settings) abort
   finally
     call delete(temp_file)
   endtry
-
-  let s:snapshot = a:line_settings
 endfun
 
 fun s:getColor(colSchem) abort
@@ -29,13 +38,21 @@ fun s:getColor(colSchem) abort
     if (len(s:shires) > 1)
       return s:getColor(s:shires[-1])
     else
-      echoer 'onestatus; no color schema found'
+      echoer 'onestatus: no color schema found'
     endif
   endif
 
   let s:fmt = {i,m -> substitute(m, '\vcterm(fg|bg)\=(\d.+)',{v -> printf('%s=colour%s', v[1], v[2])}, "g")}
-  let s:res = join(map(s:filterd, s:fmt), ',')
-  return s:res
+  let s:cols = map(s:filterd, s:fmt)
+  let s:res = join(s:cols, ',')
+  let s:fg = get(split(get(filter(copy(s:cols), {i,v -> strcharpart(v,0,2) == 'fg'}), 0, ''), '='), 1, '')
+  let s:bg = get(split(get(filter(copy(s:cols), {i,v -> strcharpart(v,0,2) == 'bg'}), 0, ''), '='), 1, '')
+  return 'set-option status-style ' . s:res
 endfun
 
-command! TestLine call s:apply(['set-option status-style ' . s:getColor('NERDTreeDir')])
+fun s:getRight() abort
+  let s:cur = printf("set-option status-right \"#[fg=%s,bg=%s] %s \"", s:bg, s:fg, FugitiveHead())
+  return s:cur
+endfun
+
+command! TestLine call s:apply([s:getColor('GruvboxRedSign'), s:getRight()])

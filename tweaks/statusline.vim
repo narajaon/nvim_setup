@@ -1,10 +1,5 @@
 let s:formated = ''
 
-function SetCurDir()
-  let cwd = getcwd()
-  let s:formated = get(split(cwd, '/')[-1:], 0, 'root')
-endfun
-
 function GetFormated()
   return s:formated
 endfun

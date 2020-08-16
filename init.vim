@@ -56,7 +56,7 @@ set mouse=a
 set tags=tags
 syntax on
 set nohlsearch
-" set laststatus=0
+set laststatus=0
 set ttimeoutlen=0
 
 filetype plugin on
