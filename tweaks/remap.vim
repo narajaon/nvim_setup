@@ -60,9 +60,6 @@ cnoremap <C-D> <Del>
 cmap <nowait><A-b> <S-Left>
 cmap <nowait><A-f> <S-Right>
 
-" view current folder
-map <silent><leader>cd :let @a=expand("%:h") \| 20Lex \| /%<cr>
-
 " go to prev/next quickfix
 nmap <silent> ]q :cnext<cr>
 nmap <silent> [q :cprev<cr>
@@ -71,4 +68,21 @@ nmap <silent> [q :cprev<cr>
 nnoremap <silent>n :<C-u>execute "keepjumps norm! " . v:count1 . "n"<CR>
 nnoremap <silent>N :<C-u>execute "keepjumps norm! " . v:count1 . "N"<CR>
 nnoremap <silent>} :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
-nnoremap <silent>{ :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
+noremap <silent>{ :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
+
+let s:exId = 0
+function ToggleLex()
+  if &ft == "netrw" || s:exId > 0
+    let s:exId = 0
+    exe "Lex"
+  else
+    let l:curdir=expand('%:p:h')
+    let l:curfile=expand('%:t')
+    exe "15Lex " . l:curdir
+    let s:exId = win_getid()
+    let l:line = search(l:curfile)
+    call cursor(l:line, 0)
+  endif
+endfun
+
+map <silent><leader>fx :call ToggleLex()<cr>

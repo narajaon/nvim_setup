@@ -2,6 +2,9 @@ call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
+" surrounding
+Plug 'tpope/vim-surround'
+
 " Testing util
 Plug 'vim-test/vim-test'
 
@@ -59,8 +62,8 @@ set ttimeoutlen=0
 filetype plugin on
 
 " add one space after comment
-let g:NERDSpaceDelims = 1
-" let g:netrw_liststyle = 3
+" let g:NERDSpaceDelims = 1
+let g:netrw_liststyle = 3
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
