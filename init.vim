@@ -54,10 +54,11 @@ set shiftwidth=2
 set expandtab
 set mouse=a
 set tags=tags
-syntax on
 set nohlsearch
 set laststatus=0
 set ttimeoutlen=0
+
+syntax on
 
 filetype plugin on
 
@@ -68,8 +69,9 @@ let g:netrw_liststyle = 3
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
 
-" onedark theme
-colorscheme gruvbox
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 source ~/.config/nvim/tweaks/onestatus.vim
 source ~/.config/nvim/tweaks/autocmd.vim
@@ -80,3 +82,6 @@ source ~/.config/nvim/tweaks/coc.vim
 source ~/.config/nvim/tweaks/testName.vim
 source ~/.config/nvim/tweaks/statusline.vim
 source ~/.config/nvim/tweaks/hardtime.vim
+
+" onedark theme
+colorscheme gruvbox

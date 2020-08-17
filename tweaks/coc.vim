@@ -23,7 +23,7 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
 " Show all diagnostics.
-nmap <silent>ge <Cmd><C-u>CocFzfList diagnostics<cr>
+nmap <silent>gq <Cmd><C-u>CocFzfList diagnostics<cr>
 
 " remap gotos
 nmap <silent>gd <Plug>(coc-definition)
@@ -31,7 +31,3 @@ nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
 nmap <silent>gc <Plug>(coc-refactor)
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300

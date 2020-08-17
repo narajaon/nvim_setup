@@ -13,3 +13,9 @@ aug narajaon#aug
   autocmd! TabClosed * let g:lastTab = g:lastTab_backup
   nmap <silent>gl :exe "tabn " . g:lastTab<cr>
 aug end
+
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
+augroup END

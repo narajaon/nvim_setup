@@ -74,6 +74,9 @@ nnoremap <silent>N <Cmd>execute "keepjumps norm! " . v:count1 . "N"<CR>
 nnoremap <silent>} <Cmd>execute "keepjumps norm! " . v:count1 . "}"<CR>
 noremap <silent>{ <Cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>
 
+" Save session
+command Ss mksession! $STPDIR/Session.vim
+
 let s:exId = 0
 function ToggleLex()
   if &ft == "netrw" || s:exId > 0
