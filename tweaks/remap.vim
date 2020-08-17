@@ -75,7 +75,7 @@ nnoremap <silent>} <Cmd>execute "keepjumps norm! " . v:count1 . "}"<CR>
 noremap <silent>{ <Cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>
 
 " Save session
-command Ss mksession! $STPDIR/Session.vim
+command! Ss mksession! $STPDIR/Session.vim
 
 let s:exId = 0
 function ToggleLex()

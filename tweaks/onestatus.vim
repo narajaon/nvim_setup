@@ -15,7 +15,6 @@ endfun
 
 fun s:apply(line_settings) abort
   let temp_file = tempname()
-
   try
     call writefile(a:line_settings, temp_file)
     call system("tmux source ". s:wrap_in_quotes(temp_file))
@@ -50,25 +49,48 @@ fun s:getColor(colSchem) abort
   return 'set-option status-style ' . s:res
 endfun
 
-fun s:getCwd()
-  let s:cur = printf("\\~/%s", s:getFormated())
+fun s:getHead()
+  let s:head = FugitiveHead()
+
+  if (s:head == "")
+    return ""
+  endif
+
+  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s]  %s ", '#218380','#fcfcfc', '#218380', s:head)
   return s:cur
 endfun
 
-fun s:getHead()
-  let s:cur = printf("#[fg=%s,bg=%s] \uE0B3 %s", s:bg, s:fg, FugitiveHead())
+fun s:getCFile()
+  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s] [%s]", '#26547c', '#fcfcfc', '#26547c', &filetype)
+  return s:cur
+endfun
+
+fun s:getCwd()
+  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s]\\~/%s", '#ffd166', '#26547c', '#ffd166', s:getFormated()) 
   return s:cur
 endfun
 
 fun s:getRight() abort
-  let s:cur = printf("set-option status-right \"%s %s \"", s:getCwd(), s:getHead())
+  let s:cur = printf("set-option -g status-right \"%s %s %s\"", s:getCwd(), s:getCFile(), s:getHead())
+  return s:cur
+endfun
+
+fun s:getLeft() abort
+  let s:cur = printf("set-option -g status-left \" #[fg=%s]#H \"", '#6c757d')
+  return s:cur
+endfun
+
+fun s:getCurWin() abort
+  let s:cur = printf("set-window-option -g window-status-current-style fg=%s,bg=%s", '#ffd167', 'default')
+  return s:cur
+endfun
+
+fun s:getWinList() abort
+  let s:cur = printf("set-window-option -g window-status-style fg=%s,bg=%s", '#fcfcfc', 'default')
   return s:cur
 endfun
 
 " TODO:
-" - add cwd
-" - add cfile
 " - add ctime
 " - add autocmd
-command! TestLine call s:apply([s:getColor('CursorLineNr'), s:getRight()])
-au BufEnter * TestLine
+au WinEnter * call s:apply([s:getColor('NvimOperator'), s:getCurWin(), s:getRight(), s:getWinList(), s:getLeft()])
