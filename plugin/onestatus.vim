@@ -1,12 +1,17 @@
-let s:formated = ''
+" TODO:
+" - add ctime
+" - refacto before publish
+au WinEnter * call s:apply([s:getColor('NvimOperator'), s:getCurWin(), s:getRight(), s:getWinList(), s:getLeft()])
 
-function SetCurDir()
-  let cwd = getcwd()
-  let s:formated = get(split(cwd, '/')[-1:], 0, 'root')
-endfun
+if exists('g:loaded_onestatus')
+  finish
+endif
+
+let g:loaded_onestatus = 1
+let g:cwd_formated = ''
 
 function s:getFormated()
-  return s:formated
+  return g:cwd_formated
 endfun
 
 fun s:wrap_in_quotes(text)
@@ -14,11 +19,15 @@ fun s:wrap_in_quotes(text)
 endfun
 
 fun s:apply(line_settings) abort
-  let temp_file = tempname()
   try
+    let s:save_cpo = &cpo
+    set cpo&vim
+    let temp_file = tempname()
     call writefile(a:line_settings, temp_file)
     call system("tmux source ". s:wrap_in_quotes(temp_file))
   finally
+    let &cpo = s:save_cpo
+    unlet s:save_cpo
     call delete(temp_file)
   endtry
 endfun
@@ -89,8 +98,3 @@ fun s:getWinList() abort
   let s:cur = printf("set-window-option -g window-status-style fg=%s,bg=%s", '#fcfcfc', 'default')
   return s:cur
 endfun
-
-" TODO:
-" - add ctime
-" - add autocmd
-au WinEnter * call s:apply([s:getColor('NvimOperator'), s:getCurWin(), s:getRight(), s:getWinList(), s:getLeft()])
