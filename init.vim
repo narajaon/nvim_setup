@@ -74,5 +74,8 @@ let test#strategy = "dispatch"
 " delays and poor user experience.
 set updatetime=300
 
+au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=underline
+au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
+
 " onedark theme
 colorscheme gruvbox

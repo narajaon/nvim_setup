@@ -1,17 +1,26 @@
 " TODO:
 " - add ctime
 " - refacto before publish
-au WinEnter * call s:apply([s:getColor('NvimOperator'), s:getCurWin(), s:getRight(), s:getWinList(), s:getLeft()])
+command! -nargs=* OneStatus :call s:apply(s:buildLine([ s:right(), s:curwin(), s:winlist(), s:left()]))
 
 if exists('g:loaded_onestatus')
   finish
 endif
 
-let g:loaded_onestatus = 1
 let g:cwd_formated = ''
+let s:cur = ""
+let s:loaded_onestatus = 1
 
 function s:getFormated()
   return g:cwd_formated
+endfun
+
+function s:getHead()
+  let s:head = FugitiveHead()
+  if (s:head == "")
+    return ""
+  endif
+  return printf("  %s ", s:head)
 endfun
 
 fun s:wrap_in_quotes(text)
@@ -23,7 +32,7 @@ fun s:apply(line_settings) abort
     let s:save_cpo = &cpo
     set cpo&vim
     let temp_file = tempname()
-    call writefile(a:line_settings, temp_file)
+    call writefile(add(a:line_settings, s:getColor('NvimOperator')), temp_file)
     call system("tmux source ". s:wrap_in_quotes(temp_file))
   finally
     let &cpo = s:save_cpo
@@ -36,20 +45,15 @@ fun s:getColor(colSchem) abort
   try
     let s:hires = execute('hi ' . a:colSchem)
   catch 'E411'
-    echoer 'onestatus: no color schema found'
   endtry
-
   let s:shires = split(s:hires)
   let s:filterd = filter(copy(s:shires), {i,v -> v =~ '\vcterm.+'})
-
   if (s:filterd == [])
     if (len(s:shires) > 1)
       return s:getColor(s:shires[-1])
     else
-      echoer 'onestatus: no color schema found'
     endif
   endif
-
   let s:fmt = {i,m -> substitute(m, '\vcterm(fg|bg)\=(\d.+)',{v -> printf('%s=colour%s', v[1], v[2])}, "g")}
   let s:cols = filter(map(s:filterd, s:fmt), {i,v -> v =~ '\v^(bg|fg).+'})
   let s:res = join(s:cols, ',')
@@ -58,43 +62,39 @@ fun s:getColor(colSchem) abort
   return 'set-option status-style ' . s:res
 endfun
 
-fun s:getHead()
-  let s:head = FugitiveHead()
-
-  if (s:head == "")
-    return ""
-  endif
-
-  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s]  %s ", '#218380','#fcfcfc', '#218380', s:head)
-  return s:cur
+fun s:buildSection(attrs)
+  let s:bg = get(a:attrs, 'bg', '')
+  let s:fg = get(a:attrs, 'fg', '')
+  let s:label = get(a:attrs, 'label', '')
+  let s:parts = printf('#[fg=%s,bg=%s]%s', s:fg, s:bg, s:label ? s:label : ' '.s:label)
+  return s:parts
 endfun
 
-fun s:getCFile()
-  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s] [%s]", '#26547c', '#fcfcfc', '#26547c', &filetype)
-  return s:cur
+fun s:buildPart(sections)
+  let s:part = [] 
+  for sect in a:sections.attributes
+    call add(s:part, s:buildSection(sect))
+  endfor
+  let s:res =  printf('%s "%s"', a:sections.command, join(s:part, ''))
+  return s:res
 endfun
 
-fun s:getCwd()
-  let s:cur = printf("#[fg=%s]#[fg=%s,bg=%s]\\~/%s", '#ffd166', '#26547c', '#ffd166', s:getFormated()) 
-  return s:cur
+fun s:buildLine(parts)
+  let s:status = []
+  for sections in a:parts
+    call add(s:status, s:buildPart(sections))
+  endfor
+  return s:status
 endfun
 
-fun s:getRight() abort
-  let s:cur = printf("set-option -g status-right \"%s %s %s\"", s:getCwd(), s:getCFile(), s:getHead())
-  return s:cur
-endfun
+"set-option -g status-right
+let s:right = { -> {'command': 'set-option -g status-right', 'attributes': [{"fg": "#ffd166", "bg": "default", "label": ""},{"fg": "#26547c", "bg": "#ffd166", "label": "~/" . s:getFormated()}, {"fg": "#26547c","bg": "#ffd166", "label": ""}, {"fg": "#fcfcfc", "bg": "#26547c", "label": printf('[%s]', &filetype)}, {"fg": "#218380","bg": "#26547c", "label": ""}, {"fg": "#fcfcfc", "bg": "#218380", "label": s:getHead()}]}} 
 
-fun s:getLeft() abort
-  let s:cur = printf("set-option -g status-left \" #[fg=%s]#H \"", '#6c757d')
-  return s:cur
-endfun
+" set-window-option -g window-status-current-style 
+let s:curwin = { -> {'command': 'set-window-option -g window-status-current-style ', 'attributes': [{"fg": '#6c757d', "bg": 'default'}]}}
 
-fun s:getCurWin() abort
-  let s:cur = printf("set-window-option -g window-status-current-style fg=%s,bg=%s", '#ffd167', 'default')
-  return s:cur
-endfun
+" set-window-option -g window-status-style
+let s:winlist = { -> {'command': 'set-window-option -g window-status-style', 'attributes': [{"fg": '#fcfcfc', "bg": 'default'}]}}
 
-fun s:getWinList() abort
-  let s:cur = printf("set-window-option -g window-status-style fg=%s,bg=%s", '#fcfcfc', 'default')
-  return s:cur
-endfun
+"set-option -g status-left
+let s:left = { -> {'command': 'set-option -g status-left', 'attributes': [{"fg": "#6c757d", "label": "#H"}]}}
