@@ -45,6 +45,7 @@ fun s:getColor(colSchem) abort
   try
     let s:hires = execute('hi ' . a:colSchem)
   catch 'E411'
+    echoer 'bad highlight'
   endtry
   let s:shires = split(s:hires)
   let s:filterd = filter(copy(s:shires), {i,v -> v =~ '\vcterm.+'})
@@ -52,6 +53,7 @@ fun s:getColor(colSchem) abort
     if (len(s:shires) > 1)
       return s:getColor(s:shires[-1])
     else
+      echoer 'bad highlight'
     endif
   endif
   let s:fmt = {i,m -> substitute(m, '\vcterm(fg|bg)\=(\d.+)',{v -> printf('%s=colour%s', v[1], v[2])}, "g")}
@@ -66,7 +68,8 @@ fun s:buildSection(attrs)
   let s:bg = get(a:attrs, 'bg', '')
   let s:fg = get(a:attrs, 'fg', '')
   let s:label = get(a:attrs, 'label', '')
-  let s:parts = printf('#[fg=%s,bg=%s]%s', s:fg, s:bg, s:label ? s:label : ' '.s:label)
+  let s:fmt = get(a:attrs, 'isStyleOnly', v:false) ? 'fg=%s,bg=%s%s' : '#[fg=%s,bg=%s]%s'
+  let s:parts = printf(s:fmt, s:fg, s:bg, s:label ? s:label : ' '.s:label)
   return s:parts
 endfun
 
@@ -91,10 +94,10 @@ endfun
 let s:right = { -> {'command': 'set-option -g status-right', 'attributes': [{"fg": "#ffd166", "bg": "default", "label": ""},{"fg": "#26547c", "bg": "#ffd166", "label": "~/" . s:getFormated()}, {"fg": "#26547c","bg": "#ffd166", "label": ""}, {"fg": "#fcfcfc", "bg": "#26547c", "label": printf('[%s]', &filetype)}, {"fg": "#218380","bg": "#26547c", "label": ""}, {"fg": "#fcfcfc", "bg": "#218380", "label": s:getHead()}]}} 
 
 " set-window-option -g window-status-current-style 
-let s:curwin = { -> {'command': 'set-window-option -g window-status-current-style ', 'attributes': [{"fg": '#6c757d', "bg": 'default'}]}}
+let s:curwin = { -> {'command': 'set-window-option -g window-status-current-style ', 'attributes': [{"fg": '#ffd167', "bg": 'default', "isStyleOnly": v:true}]}}
 
 " set-window-option -g window-status-style
-let s:winlist = { -> {'command': 'set-window-option -g window-status-style', 'attributes': [{"fg": '#fcfcfc', "bg": 'default'}]}}
+let s:winlist = { -> {'command': 'set-window-option -g window-status-style', 'attributes': [{"fg": '#fcfcfc', "bg": 'default', "isStyleOnly": v:true}]}}
 
 "set-option -g status-left
-let s:left = { -> {'command': 'set-option -g status-left', 'attributes': [{"fg": "#6c757d", "label": "#H"}]}}
+let s:left = { -> {'command': 'set-option -g status-left', 'attributes': [{"fg": "#6c757d", "bg": "default", "label": "#H"}]}}
