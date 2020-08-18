@@ -57,6 +57,7 @@ set tags=tags
 set nohlsearch
 set laststatus=0
 set ttimeoutlen=0
+set cedit=<c-y>
 
 syntax on
 
@@ -72,16 +73,6 @@ let test#strategy = "dispatch"
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
-source ~/.config/nvim/tweaks/onestatus.vim
-source ~/.config/nvim/tweaks/autocmd.vim
-source ~/.config/nvim/tweaks/remap.vim
-source ~/.config/nvim/tweaks/fzf.vim
-source ~/.config/nvim/tweaks/fzf_jump.vim
-source ~/.config/nvim/tweaks/coc.vim
-source ~/.config/nvim/tweaks/testName.vim
-source ~/.config/nvim/tweaks/statusline.vim
-source ~/.config/nvim/tweaks/hardtime.vim
 
 " onedark theme
 colorscheme gruvbox
