@@ -2,7 +2,7 @@ aug narajaon#aug
   au!
   au WinEnter,WinLeave * call s:setCurDir()
   au FileType qf,help,fugitive,man wincmd L
-  au WinEnter * OneStatus
+  au WinEnter * OneStatusDefault
 
   if !exists('g:lastTab')
     let g:lastTab = 1

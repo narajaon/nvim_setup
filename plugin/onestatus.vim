@@ -1,5 +1,6 @@
-if !exists(':OneStatus')
-  command! -nargs=* OneStatus :call onestatus#build([s:defaultStyle(), s:right(), s:curwin(), s:winlist(), s:left()])
+if !exists(':OneStatus*')
+  command! -nargs=+ OneStatus :call onestatus#build(<q-args>)
+  command! OneStatusDefault :call onestatus#build([s:defaultStyle(), s:right(), s:curwin(), s:winlist(), s:left()])
 endif
 
 if exists('g:loaded_onestatus')
@@ -7,6 +8,7 @@ if exists('g:loaded_onestatus')
 endif
 
 let g:loaded_onestatus = 1
+let g:onestatus_default_layout = 1
 
 fun onestatus#build(cmds) abort
   let s:index = 0
@@ -100,8 +102,10 @@ let s:left = { -> {'command': 'set-option -g status-left', 'attributes': [{"fg":
 let s:defaultStyle = { -> s:getColor('CursorLineNr', 'set-option status-style', v:true)}
 
 " set default config
-call onestatus#build([
-      \{'command' : 'set-option -g status-justify centre'},
-      \{'command': 'set-option status-right-length 50'},
-      \{'command': 'set-option status-left-length 60'},
-      \])
+if g:onestatus_default_layout
+  call onestatus#build([
+        \{'command' : 'set-option -g status-justify centre'},
+        \{'command': 'set-option status-right-length 50'},
+        \{'command': 'set-option status-left-length 60'},
+        \])
+endif
