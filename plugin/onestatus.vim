@@ -1,13 +1,23 @@
-" TODO:
 if !exists(':OneStatus')
-  command! -nargs=* OneStatus :call s:apply(s:buildLine([s:defaultStyle(), s:right(), s:curwin(), s:winlist(), s:left()]))
+  command! -nargs=* OneStatus :call onestatus#build([s:defaultStyle(), s:right(), s:curwin(), s:winlist(), s:left()])
 endif
 
 if exists('g:loaded_onestatus')
   finish
 endif
 
-let s:loaded_onestatus = 1
+let g:loaded_onestatus = 1
+
+fun onestatus#build(cmds) abort
+  let s:index = 0
+  while s:index < len(a:cmds)
+    if !has_key(a:cmds[s:index], 'command')
+      echoer 'command attribute missing in object ' . s:index
+    endif
+    let s:index = s:index + 1
+  endwhile
+  call s:apply(s:buildLine(a:cmds))
+endfun
 
 fun s:getFormated()
   return g:cwd_formated
@@ -57,9 +67,11 @@ endfun
 
 fun s:buildPart(sections)
   let s:part = [] 
-  for sect in a:sections.attributes
-    call add(s:part, s:buildSection(sect))
-  endfor
+  if has_key(a:sections, 'attributes')
+    for sect in a:sections.attributes
+      call add(s:part, s:buildSection(sect))
+    endfor
+  endif
   let s:res =  printf('%s %s', a:sections.command, join(s:part, ''))
   return s:res
 endfun
@@ -86,3 +98,10 @@ let s:left = { -> {'command': 'set-option -g status-left', 'attributes': [{"fg":
 
 " set-option status-style
 let s:defaultStyle = { -> s:getColor('CursorLineNr', 'set-option status-style', v:true)}
+
+" set default config
+call onestatus#build([
+      \{'command' : 'set-option -g status-justify centre'},
+      \{'command': 'set-option status-right-length 50'},
+      \{'command': 'set-option status-left-length 60'},
+      \])
