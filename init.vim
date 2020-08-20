@@ -17,6 +17,9 @@ Plug 'unblevable/quick-scope'
 " fugitive
 Plug 'tpope/vim-fugitive'
 
+" for going to github view
+Plug 'tpope/vim-rhubarb'
+
 " Async dispatch
 Plug 'tpope/vim-dispatch'
 
