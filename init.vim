@@ -2,6 +2,9 @@ call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
+" css color highlight
+Plug 'ap/vim-css-color'
+
 " surrounding
 Plug 'tpope/vim-surround'
 
@@ -39,7 +42,10 @@ Plug 'sheerun/vim-polyglot'
 " auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" puts a timer on hjkl
 Plug 'takac/vim-hardtime'
+
+Plug 'narajaon/onestatus'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
