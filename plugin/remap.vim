@@ -11,7 +11,7 @@ inoremap <nowait><c-k> <esc><Cmd>w<cr>
 nnoremap <enter> @:
 
 " remap leader
-let mapleader = " "
+let mapleader = "\<space>"
 
 " files
 let s:fzf_gfiles_options = ["--layout=reverse", "--preview", "bat {} --theme=TwoDark --color=always"]

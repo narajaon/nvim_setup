@@ -2,13 +2,13 @@
 " Maintainer: narajaon <fabienrajaonarison@gmail.com>
 " License:	This file is placed in the public domain.
 
-if exists("g:loaded_fzf_jump")
+if v:true
   finish
 endif
 let g:loaded_fzf_jump= 1
 
 " change default layout
-let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "FZF_USE_DEFAULT='1' $MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}" ]
+let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "$MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}" ]
 
 function <SID>FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
@@ -92,10 +92,5 @@ function <SID>Fzf_jump(options, isFullscreen)
 endfun
 
 " jumps
-if !exists(":Jump") && !exists(":FloatingFZF") && !hasmapto('<nowait><leader>j')
   command! -bang -nargs=0 Jump call <SID>Fzf_jump(fzf_jump_options, <bang>0)
   command! -nargs=0 FloatingFZF call <SID>FloatingFZF()
-
-  " jump list
-  noremap <unique> <nowait><leader>j :Jump<cr>
-endif
