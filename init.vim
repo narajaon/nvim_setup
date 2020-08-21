@@ -5,6 +5,9 @@ Plug 'preservim/nerdcommenter'
 " css color highlight
 Plug 'ap/vim-css-color'
 
+" add custom text objects
+Plug 'kana/vim-textobj-user'
+
 " surrounding
 Plug 'tpope/vim-surround'
 
@@ -48,7 +51,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " puts a timer on hjkl
 Plug 'takac/vim-hardtime'
 
-Plug 'narajaon/onestatus'
+Plug 'narajaon/onestatus', { 'branch': 'master' }
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required

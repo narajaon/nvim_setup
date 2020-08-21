@@ -1,8 +1,7 @@
 aug narajaon#aug
   au!
-  au WinEnter,WinLeave * call s:setCurDir()
+  au BufEnter * :OneStatus
   au FileType qf,help,fugitive,man wincmd L
-  au WinEnter * OneStatus
 
   if !exists('g:lastTab')
     let g:lastTab = 1
@@ -14,8 +13,3 @@ aug narajaon#aug
   au TabClosed * let g:lastTab = g:lastTab_backup
   nmap <silent>gl :exe "tabn " . g:lastTab<cr>
 aug END
-
-function s:setCurDir()
-  let cwd = getcwd()
-  let g:cwd_formated = get(split(cwd, '/')[-1:], 0, 'root')
-endfun
