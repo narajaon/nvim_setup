@@ -70,6 +70,7 @@ set nohlsearch
 set laststatus=0
 set ttimeoutlen=0
 set cedit=<c-y>
+set noshowmode noruler
 
 syntax on
 
