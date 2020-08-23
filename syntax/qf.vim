@@ -1,0 +1,6 @@
+syn match Statement "\v●.+$"
+syn match Directory "\vExpected:.+$"
+syn match WarningMsg "\vReceived:.+$"
+syn match CocListFgRed "console.error"
+syn match NvimIdentifier "\c\v(FAIL|PASS) ((\/|\\|\/\/)?[a-z0-9_@\-^!#$%&+={}.\/\\\[\]]+)+\.js(:\d+:\d+)?"
+syn match Whitespace "\v\s+at .+ \(.+\)"
