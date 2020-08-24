@@ -2,9 +2,10 @@
 " Maintainer: narajaon <fabienrajaonarison@gmail.com>
 " License:	This file is placed in the public domain.
 
-if v:true
+if exists('g:loaded_fzf_jump')
   finish
 endif
+
 let g:loaded_fzf_jump= 1
 
 " change default layout
@@ -14,7 +15,7 @@ function <SID>FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let height = 20
+  let height = 15
   let width = 120
   let horizontal = 1
   let vertical = 1
@@ -92,5 +93,5 @@ function <SID>Fzf_jump(options, isFullscreen)
 endfun
 
 " jumps
-  command! -bang -nargs=0 Jump call <SID>Fzf_jump(fzf_jump_options, <bang>0)
-  command! -nargs=0 FloatingFZF call <SID>FloatingFZF()
+command! -bang -nargs=0 Jump call <SID>Fzf_jump(fzf_jump_options, <bang>0)
+command! -nargs=0 FloatingFZF call <SID>FloatingFZF()

@@ -85,19 +85,8 @@ noremap <silent>{ <Cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>
 " Save session
 command! Ss mksession! $STPDIR/Session.vim
 
-let s:exId = 0
-function ToggleLex()
-  if &ft == "netrw" || s:exId > 0
-    let s:exId = 0
-    exe "Lex"
-  else
-    let l:curdir=expand('%:p:h')
-    let l:curfile=expand('%:t')
-    exe "15Lex " . l:curdir
-    let s:exId = win_getid()
-    let l:line = search(l:curfile)
-    call cursor(l:line, 0)
-  endif
-endfun
+" open file explorer
+map <silent><leader>fx <Cmd>Ex<cr>
 
-map <silent><leader>fx <Cmd>call ToggleLex()<cr>
+" open jump fzf
+nmap <leader>j <cmd>Jump<cr>
