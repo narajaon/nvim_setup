@@ -1,0 +1,57 @@
+snippet cons "declares a const variable" b
+const ${0:name} = ${1:value}
+endsnippet
+
+snippet let "declares a let variable" b
+let ${0:name} = ${1:value}
+endsnippet
+
+snippet fun "creates a function" b
+function ${0:functionName}(${1: arg}) {
+	coucou
+	$2
+}
+endsnippet
+
+snippet log "creates a console.log" b
+console.log(${0:'something'})
+endsnippet
+
+snippet cb "creates an arrow function" i
+(${0:arg}) => $1
+endsnippet
+
+snippet if "creates an if block" b
+if (${0:condition}) {
+	$1
+}
+endsnippet
+
+snippet iei "creates an if block" b
+if (${0:condition1}) {
+} else if (${1:condition2}){
+}
+endsnippet
+
+snippet for "creates a for loop" b
+for (let ${0:i} = 0; ${0:i} < ${1:array.length}; ${0:i++}) {
+	$2
+}
+endsnippet
+
+snippet whi "creates a while loop" b
+while ($0) {
+	$1
+}
+endsnippet
+
+snippet fur "creates a functional react component" b
+function ${0:ComponentName}(${1:props}) {
+	return (
+			<${2:div}>
+			</${2:div}>
+			)
+}
+
+export $0
+endsnippet
