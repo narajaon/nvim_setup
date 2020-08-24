@@ -17,11 +17,11 @@ Plug 'vim-test/vim-test'
 " quickscope
 Plug 'unblevable/quick-scope'
 
+" file explorer
+Plug 'tpope/vim-vinegar'
+
 " fugitive
 Plug 'tpope/vim-fugitive'
-
-" for going to github view
-Plug 'tpope/vim-rhubarb'
 
 " Async dispatch
 Plug 'tpope/vim-dispatch'
@@ -39,6 +39,9 @@ Plug 'jiangmiao/auto-pairs'
 " onedark.vim theme
 Plug 'joshdick/onedark.vim'
 
+" onehalf.vim theme
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
 " gruvbox.vim theme
 Plug 'morhetz/gruvbox'
 
@@ -51,6 +54,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " puts a timer on hjkl
 Plug 'takac/vim-hardtime'
 
+" bg
 Plug 'narajaon/onestatus', { 'branch': 'master' }
 
 " All of your Plugins must be added before the following line
@@ -78,7 +82,7 @@ syntax on
 filetype plugin on
 
 " add one space after comment
-" let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1
 let g:netrw_liststyle = 3
 
 " make test commands execute using dispatch.vim
@@ -92,4 +96,4 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 " onedark theme
-colorscheme gruvbox
+colorscheme onehalflight

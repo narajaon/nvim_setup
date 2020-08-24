@@ -2,7 +2,6 @@ aug narajaon#aug
   au!
   au BufEnter * :OneStatus
   au FileType qf,help,fugitive,man wincmd L
-  au InsertEnter * norm zz
 
   if !exists('g:lastTab')
     let g:lastTab = 1
