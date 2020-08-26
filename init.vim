@@ -54,8 +54,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " puts a timer on hjkl
 Plug 'takac/vim-hardtime'
 
+" auto change root dir
+Plug 'airblade/vim-rooter'
+
 " bg
-Plug 'narajaon/onestatus', { 'branch': 'master' }
+Plug 'narajaon/onestatus', { 'branch': 'develop' }
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -83,10 +86,12 @@ filetype plugin on
 
 " add one space after comment
 let g:NERDSpaceDelims = 1
-let g:netrw_liststyle = 3
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
+
+" project root finding strategy
+let g:rooter_patterns = ['.git', 'Makefile', 'package.json']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
