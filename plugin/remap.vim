@@ -69,12 +69,12 @@ cmap <nowait><A-b> <S-Left>
 cmap <nowait><A-f> <S-Right>
 
 " go to prev/next quickfix
-nmap <silent> ]l <Cmd>lnext<cr>
-nmap <silent> [l <Cmd>lprev<cr>
+nmap <silent> ]l <Cmd>execute v:count1 . " lnext"<cr>
+nmap <silent> [l <Cmd>execute v:count1 . " lprev"<cr>
 
 " go to prev/next quickfix
-nmap <silent> ]q <Cmd>cnext<cr>
-nmap <silent> [q <Cmd>cprev<cr>
+nmap <silent> ]q <Cmd>execute v:count1 . " cnext"<cr>
+nmap <silent> [q <Cmd>execute v:count1 . " cprev"<cr>
 
 " keep jumps
 nnoremap <silent>n <Cmd>execute "keepjumps norm! " . v:count1 . "n"<CR>

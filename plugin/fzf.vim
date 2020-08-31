@@ -10,9 +10,11 @@ let g:fzf_colors =
       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
       \ 'hl+':     ['fg', 'Statement'],
       \ 'info':    ['fg', 'netrwComment'],
-      \ 'border':  ['bg', 'GruvboxBg1'],
+      \ 'border':  ['fg', 'Normal'],
       \ 'prompt':  ['fg', 'netrwDir'],
       \ 'pointer': ['fg', 'netrwDir'],
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
+      \'preview-fg': ['fg', 'Title'],
+      \'preview-bg': ['fg', 'CocFloating'],
       \ 'header':  ['fg', 'Comment'] }
