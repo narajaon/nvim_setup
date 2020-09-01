@@ -1,3 +1,5 @@
+set rtp+=/home/fabien/Code/onestatus
+
 call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
@@ -57,9 +59,6 @@ Plug 'takac/vim-hardtime'
 " auto change root dir
 Plug 'airblade/vim-rooter'
 
-" bg
-Plug 'narajaon/onestatus', { 'branch': 'develop' }
-
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " Put your non-Plugin stuff after this line
@@ -101,4 +100,4 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 " onedark theme
-colorscheme onehalflight
+colorscheme onedark

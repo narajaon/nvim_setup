@@ -30,7 +30,7 @@ nmap <leader>p <cmd>call Fzfiles()<cr>
 tnoremap <c-t>n <c-\><c-n>
 
 " go directly to 5th line in fugitive
-cmap G<cr> G<cr> \| 5gg
+cmap G<cr> G<cr> \| ]]=
 
 " remap CTRL-W
 nmap <leader>w <C-W>
