@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
             \'coc-tsserver',
             \'coc-git',
             \'coc-eslint',
+            \'coc-prettier',
             \'coc-react-refactor',
             \]
 
@@ -34,8 +35,8 @@ nnoremap <silent>ga <cmd>CocAction<cr>
 vnoremap <silent>ga  <cmd>'<,'>CocAction<cr>
 
 " remap gotos
-nnoremap <silent>gd <Plug>(coc-definition)
-nnoremap <silent>gy <Plug>(coc-type-definition)
-nnoremap <silent>gi <Plug>(coc-implementation)
-nnoremap <silent>gr <Plug>(coc-references)
-nnoremap <silent>gc <Plug>(coc-refactor)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gc <Plug>(coc-refactor)

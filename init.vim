@@ -4,6 +4,13 @@ call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
+" zen mode
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+
+" note taking and stuff
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
 " css color highlight
 Plug 'ap/vim-css-color'
 
@@ -32,6 +39,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" auto completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " use fzf preview for coc-vim
 Plug 'antoinemadec/coc-fzf'
 
@@ -49,9 +59,6 @@ Plug 'morhetz/gruvbox'
 
 " syntax HL
 Plug 'sheerun/vim-polyglot'
-
-" auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " puts a timer on hjkl
 Plug 'takac/vim-hardtime'
@@ -73,7 +80,7 @@ set expandtab
 set mouse=a
 set tags=tags
 set nohlsearch
-set laststatus=0
+set laststatus=1
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
@@ -90,7 +97,10 @@ let g:NERDSpaceDelims = 1
 let test#strategy = "dispatch"
 
 " project root finding strategy
-let g:rooter_patterns = ['.git', 'Makefile', 'package.json']
+let g:rooter_patterns = ['.git', 'Makefile']
+
+" vimwiki path
+let g:vimwiki_list = [{'path': '~/.config/my_setup/wiki', 'path_html': '~/public_html/'}]
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -100,4 +110,4 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 " onedark theme
-colorscheme onedark
+colorscheme onehalflight

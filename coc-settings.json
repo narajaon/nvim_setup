@@ -1,7 +1,13 @@
 {
   "tsserver.npm": "/usr/local/bin/npm",
-  "javascript.suggestionActions.enabled": false,
-  "javascript.validate.enable": false,
+  "coc.preferences.rootPatterns": [".git", "package.json"],
   "eslint.autoFixOnSave": true,
-  "tslint.run": "onSave"
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql"
+  ]
 }
