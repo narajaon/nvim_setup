@@ -11,7 +11,7 @@ let g:loaded_fzf_jump= 1
 " change default layout
 let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "$MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}" ]
 
-function <SID>FloatingFZF()
+function s:floatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
@@ -32,7 +32,7 @@ function <SID>FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
-function s:UpNTimes(n)
+function s:upNTimes(n)
   let l:i = 0
 
   " gives the popup time to load, autocmd isn't as reliable
@@ -44,7 +44,7 @@ function s:UpNTimes(n)
   endwhile
 endfun
 
-function s:CompareJumpLists(fzfList)
+function s:compareJumpLists(fzfList)
   let juList = filter(split(execute(':ju'), '\n')[1:], {_,v -> v != '>'})
   let jumpList = reverse(juList)
   let s:curPosition = match(jumpList, '^>') 
@@ -53,14 +53,14 @@ function s:CompareJumpLists(fzfList)
   return reverse(formated)
 endfun
 
-function s:GenerateJump()
+function s:generateJump()
   let Bufpath = {v -> expand("#".v.":~")}
   let sanitized = copy(getjumplist()[0])
   let stringified = map(sanitized, 'printf("%s:%s:%s", Bufpath(v:val.bufnr), v:val.lnum, v:val.col)')
-  return s:CompareJumpLists(stringified)
+  return s:compareJumpLists(stringified)
 endfun
 
-function <SID>GoToJump(line)
+function s:goToJump(line)
   try
     let splited = split(split(a:line)[1], ':')
     let [bno, lno, col] = splited
@@ -74,24 +74,24 @@ function <SID>GoToJump(line)
   endtry
 endfun
 
-function <SID>Fzf_jump(options, isFullscreen)
+function s:fzf_jump(options, isFullscreen)
   let s:curPosition = 0
 
-  let s:saved_layout = g:fzf_layout
+  let saved_layout = g:fzf_layout
   let g:fzf_layout = { 'window': 'FloatingFZF' }
 
-  let s:save_cpo = &cpo
+  let save_cpo = &cpo
   set cpo&vim
 
-  call fzf#run(fzf#wrap({ 'source': s:GenerateJump(), 'sink': function('<SID>GoToJump'), 'options': a:options }, a:isFullscreen))
-  call s:UpNTimes(s:curPosition)
+  call fzf#run(fzf#wrap({ 'source': s:generateJump(), 'sink': function('s:goToJump'), 'options': a:options }, a:isFullscreen))
+  call s:upNTimes(s:curPosition)
 
-  let g:fzf_layout = s:saved_layout
+  let g:fzf_layout = saved_layout
 
-  let &cpo = s:save_cpo
-  unlet s:save_cpo
+  let &cpo = save_cpo
+  unlet save_cpo
 endfun
 
 " jumps
-command! -bang -nargs=0 Jump call <SID>Fzf_jump(fzf_jump_options, <bang>0)
-command! -nargs=0 FloatingFZF call <SID>FloatingFZF()
+command! -bang -nargs=0 Jump call s:fzf_jump(fzf_jump_options, <bang>0)
+command! -nargs=0 FloatingFZF call s:floatingFZF()
