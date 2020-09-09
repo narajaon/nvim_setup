@@ -16,5 +16,5 @@ let g:fzf_colors =
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \'preview-fg': ['fg', 'Title'],
+      \'preview-bg': ['fg', 'CocFloating'],
       \ 'header':  ['fg', 'Comment'] }
-      " \'preview-bg': ['fg', 'CocFloating'],

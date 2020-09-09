@@ -1,12 +1,6 @@
 " unmap digraphs
 cmap <c-k> <Nop>
 
-" save rebind
-map <c-k> <Cmd>w<cr>
-
-" save rebind
-inoremap <nowait><c-k> <esc><Cmd>w<cr>
-
 " remap enter
 nnoremap <enter> @:
 

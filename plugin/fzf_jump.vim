@@ -9,7 +9,7 @@ endif
 let g:loaded_fzf_jump= 1
 
 " change default layout
-let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "$MYVIMDIR/plugged/fzf.vim/bin/preview.sh {2}" ]
+let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "$MYVIMDIR/preview.sh {2}" ]
 
 function s:floatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
@@ -33,14 +33,14 @@ function s:floatingFZF()
 endfunction
 
 function s:upNTimes(n)
-  let l:i = 0
+  let i = 0
 
   " gives the popup time to load, autocmd isn't as reliable
   exe "sleep " . "15ms"
 
   while i < a:n
     call feedkeys("\<c-j>", 'n')
-    let l:i = l:i + 1
+    let i = i + 1
   endwhile
 endfun
 

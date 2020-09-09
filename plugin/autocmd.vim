@@ -2,8 +2,6 @@ aug narajaon#aug
   au!
   au BufEnter,BufLeave * :OneStatus
   au FileType qf,help,fugitive,man wincmd L
-  au InsertEnter * Limelight
-  au InsertLeave * Limelight!
 
   if !exists('g:lastTab')
     let g:lastTab = 1
