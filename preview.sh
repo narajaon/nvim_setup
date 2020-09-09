@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo -e $1 "\n"
 curpathWithoutLines=$( echo $1 | cut -d ":" -f1 )
+echo -e $(echo $1 | rev | cut -d "/" -f1-2 | rev) "\n"
 curpath="${curpathWithoutLines/#\~/$HOME}"
 
 if [ -f "$curpath" ]; then
