@@ -110,4 +110,5 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 " onedark theme
+" colorscheme onehalflight
 colorscheme onehalflight

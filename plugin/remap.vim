@@ -74,11 +74,17 @@ nnoremap <silent>N <Cmd>execute "keepjumps norm! " . v:count1 . "N"<CR>
 nnoremap <silent>} <Cmd>execute "keepjumps norm! " . v:count1 . "}"<CR>
 noremap <silent>{ <Cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>
 
+" lists
+nnoremap <leader>lg <cmd>CocList branches<cr>
+nnoremap <leader>ld <cmd>CocList diagnostics<cr>
+nnoremap <leader>lb <cmd>Buffers<cr>
+
 " Save session
 command! Ss mksession! $STPDIR/Session.vim
 
 " open file explorer
-map <silent><leader>fx <Cmd>Ex<cr>
+map <silent><leader>xx <Cmd>Ex<cr>
+map <silent><leader>xt <Cmd>Vex<cr>
 
 " open jump fzf
 nmap <leader>j <cmd>Jump<cr>
