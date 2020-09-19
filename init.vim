@@ -4,6 +4,9 @@ call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
+" Make wildignore == .gitignore
+Plug 'vim-scripts/gitignore'
+
 " zen mode
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'

@@ -5,7 +5,7 @@ cmap <c-k> <Nop>
 nnoremap <enter> @:
 
 " remap leader
-let mapleader = "\<space>"
+let g:mapleader = " "
 
 " project wide search
 let s:fzf_files_options = ["--layout=reverse", "--preview", "bat {} --theme=zenburn --color=always"]
@@ -85,6 +85,12 @@ command! Ss mksession! $STPDIR/Session.vim
 " open file explorer
 map <silent><leader>xx <Cmd>Ex<cr>
 map <silent><leader>xt <Cmd>Vex<cr>
+
+" eurosport maps
+map <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev<cr>
+map <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
+map <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
+
 
 " open jump fzf
 nmap <leader>j <cmd>Jump<cr>
