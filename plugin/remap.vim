@@ -74,6 +74,12 @@ nnoremap <silent>N <Cmd>execute "keepjumps norm! " . v:count1 . "N"<CR>
 nnoremap <silent>} <Cmd>execute "keepjumps norm! " . v:count1 . "}"<CR>
 noremap <silent>{ <Cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>
 
+" remap window switch
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
 " lists
 nnoremap <leader>lg <cmd>CocList branches<cr>
 nnoremap <leader>ld <cmd>CocList diagnostics<cr>

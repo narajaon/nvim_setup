@@ -38,6 +38,9 @@ Plug 'tpope/vim-fugitive'
 " Async dispatch
 Plug 'tpope/vim-dispatch'
 
+" onestatus
+" Plug 'narajaon/onestatus', { 'branch': 'master' }
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -56,6 +59,9 @@ Plug 'joshdick/onedark.vim'
 
 " onehalf.vim theme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+
+" one theme
+Plug 'rakr/vim-one'
 
 " gruvbox.vim theme
 Plug 'morhetz/gruvbox'
@@ -96,6 +102,11 @@ filetype plugin on
 " add one space after comment
 let g:NERDSpaceDelims = 1
 
+" default folding strategy
+set foldmethod=syntax "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+let javaScript_fold=1 "activate folding by JS syntax
+
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
 
@@ -112,6 +123,6 @@ set updatetime=300
 au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=underline
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
-" onedark theme
-" colorscheme onehalflight
-colorscheme onehalflight
+set background=light        " for the light version
+let g:one_allow_italics = 1 " I love italic for comments
+colorscheme one
