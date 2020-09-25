@@ -10,11 +10,11 @@ let g:fzf_colors =
       \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
       \ 'hl+':     ['fg', 'Statement'],
       \ 'info':    ['fg', 'netrwComment'],
-      \ 'border':  ['fg', 'StatusLineNC'],
+      \ 'border':  ['fg', 'PmenuThumb'],
       \ 'prompt':  ['fg', 'netrwDir'],
       \ 'pointer': ['fg', 'netrwDir'],
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \'preview-fg': ['fg', 'Title'],
-      \'preview-bg': ['fg', 'CocFloating'],
-      \ 'header':  ['fg', 'Comment'] }
+      \'preview-bg': ['bg', 'PmenuThumb'],
+      \ 'header':  ['fg', 'LineNr'] }

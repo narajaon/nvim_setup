@@ -7,10 +7,6 @@ Plug 'preservim/nerdcommenter'
 " Make wildignore == .gitignore
 Plug 'vim-scripts/gitignore'
 
-" zen mode
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-
 " note taking and stuff
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
@@ -103,8 +99,9 @@ filetype plugin on
 let g:NERDSpaceDelims = 1
 
 " default folding strategy
-set foldmethod=syntax "syntax highlighting items specify folds
-set foldcolumn=1 "defines 1 col at window left, to indicate folding
+set foldmethod=indent "fold based on indent level
+set foldcolumn=0 "defines 1 col at window left, to indicate folding
+set foldopen=search,tag,insert
 let javaScript_fold=1 "activate folding by JS syntax
 
 " make test commands execute using dispatch.vim
