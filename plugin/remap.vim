@@ -92,10 +92,19 @@ command! Ss mksession! $STPDIR/Session.vim
 map <silent><leader>xx <Cmd>Ex<cr>
 map <silent><leader>xt <Cmd>Vex<cr>
 
+fun GetPackageName()
+  let cwd = expand('%')
+  echo cwd
+  let currentPackage = matchstr(cwd, '\vpackages/(\w+)/')
+  return currentPackage
+endfun
+
 " eurosport maps
-map <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev<cr>
-map <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
-map <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
+noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev<cr>
+noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
+noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
+noremap <silent><leader>xt <Cmd>call execute(printf('Dispatch -dir=%s CI=true yarn test %%', GetPackageName()))<cr>
+
 
 
 " open jump fzf

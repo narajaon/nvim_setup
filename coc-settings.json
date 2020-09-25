@@ -2,6 +2,7 @@
   "tsserver.npm": "/usr/local/bin/npm",
   "coc.preferences.rootPatterns": [".git", "package.json"],
   "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "javascriptreact"],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",

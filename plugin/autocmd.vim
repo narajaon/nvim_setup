@@ -2,6 +2,7 @@ aug narajaon#aug
   au!
   au BufEnter,BufLeave * :OneStatus
   au FileType qf,help,fugitive,man wincmd L
+  au BufEnter * let test#project_root=GetPackageName() " changes vim-test's root for monorepos
 
   if !exists('g:lastTab')
     let g:lastTab = 1

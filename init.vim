@@ -91,6 +91,8 @@ set cedit=<c-y>
 set noshowmode noruler
 set clipboard+=unnamedplus
 
+let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs
+
 syntax on
 
 filetype plugin on
