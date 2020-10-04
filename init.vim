@@ -104,7 +104,6 @@ let g:NERDSpaceDelims = 1
 set foldmethod=indent "fold based on indent level
 set foldcolumn=0 "defines 1 col at window left, to indicate folding
 set foldopen=search,tag,insert
-let javaScript_fold=1 "activate folding by JS syntax
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
