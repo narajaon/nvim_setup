@@ -99,7 +99,7 @@ fun GetPackageName()
 endfun
 
 " eurosport maps
-noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev<cr>
+noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev:hmr<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
 noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
 noremap <silent><leader>tf <Cmd>call execute(printf('Dispatch -dir=%s CI=true yarn test %%', GetPackageName()))<cr>

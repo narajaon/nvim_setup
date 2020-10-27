@@ -65,9 +65,6 @@ Plug 'morhetz/gruvbox'
 " syntax HL
 Plug 'sheerun/vim-polyglot'
 
-" puts a timer on hjkl
-Plug 'takac/vim-hardtime'
-
 " auto change root dir
 Plug 'airblade/vim-rooter'
 
@@ -89,7 +86,6 @@ set laststatus=1
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
-set clipboard+=unnamedplus
 
 let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs
 
