@@ -1,5 +1,3 @@
-set rtp+=/home/fabien/Code/onestatus
-
 call plug#begin()
 " NERD commenter
 Plug 'preservim/nerdcommenter'
@@ -35,7 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 
 " onestatus
-" Plug 'narajaon/onestatus', { 'branch': 'master' }
+Plug 'narajaon/onestatus', { 'branch': 'master' }
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -86,6 +84,9 @@ set laststatus=1
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
+set clipboard+=unnamedplus
+
+set pyxversion=3
 
 let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs
 
