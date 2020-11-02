@@ -15,6 +15,6 @@ let g:fzf_colors =
       \ 'pointer': ['fg', 'netrwDir'],
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
-      \'preview-fg': ['fg', 'Title'],
+      \'preview-fg': ['fg', 'String'],
       \'preview-bg': ['bg', 'PmenuThumb'],
       \ 'header':  ['fg', 'LineNr'] }
