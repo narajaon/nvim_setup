@@ -1,1 +1,0 @@
-/home/fabien/.vim/bundle/onedark.vim/colors/onedark.vim
