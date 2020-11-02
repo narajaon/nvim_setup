@@ -57,9 +57,6 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " one theme
 Plug 'rakr/vim-one'
 
-" gruvbox.vim theme
-Plug 'morhetz/gruvbox'
-
 " syntax HL
 Plug 'sheerun/vim-polyglot'
 
@@ -85,11 +82,12 @@ set expandtab
 set mouse=a
 set tags=tags
 set nohlsearch
-set laststatus=1
+set laststatus=2
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
 set clipboard+=unnamedplus
+let g:netrw_altfile = 1
 
 " python provider
 set pyxversion=3
