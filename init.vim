@@ -71,8 +71,13 @@ call plug#end()            " required
 " Put your non-Plugin stuff after this line
 
 " basic conf
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 set relativenumber
-set termguicolors
 set number
 set tabstop=2
 set shiftwidth=2
@@ -86,6 +91,7 @@ set cedit=<c-y>
 set noshowmode noruler
 set clipboard+=unnamedplus
 
+" python provider
 set pyxversion=3
 
 let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs

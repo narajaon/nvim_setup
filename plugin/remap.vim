@@ -14,14 +14,14 @@ nmap <c-p> <cmd>GFiles<cr>
 
 " path wide search
 fun Fzfiles()
-  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR']
+  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/my_setup']
   let paths = join(map(fzf_dir_paths, {_,v -> expand(v)}))
   call fzf#run(fzf#wrap({'source': 'fdfind -t f . ' . paths, 'sink': 'e', 'options': s:fzf_files_options}))
 endfun
 nmap <leader>p <cmd>call Fzfiles()<cr>
 
 " normal mode in term
-tnoremap <c-t>n <c-\><c-n>
+tmap <C-o> <C-\><C-n>
 
 " go directly to 5th line in fugitive
 cmap G<cr> G<cr> \| ]]=
@@ -102,7 +102,7 @@ endfun
 noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev:hmr<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
 noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
-noremap <silent><leader>tf <Cmd>call execute(printf('Dispatch -dir=%s CI=true yarn test %%', GetPackageName()))<cr>
+noremap <silent><leader>tf <Cmd>TestFile<cr>
 noremap <silent><leader>tn <Cmd>TestNearest<cr>
 
 
