@@ -1,14 +1,15 @@
-command! -nargs=0 Ldev execute(printf('Dispatch -dir=%s yarn lint:dev %s', expand('%:p:h'), expand('%:p:h')))
-
 " eurosport related
 let s:packagePath = "~/Code/zephyr/packages"
 
-fun s:launch(pckg, cmd)
-  execute(printf(":Dispatch -dir=%s yarn %s", a:pckg, a:cmd))
+fun GetPackageName()
+  let cwd = expand('%')
+  let currentPackage = matchstr(cwd, '\vpackages/[^/]+')
+  return currentPackage
 endfun
 
-fun s:getPackages(...)
-  return system("ls -1 " . s:packagePath)
+fun s:launch(pckg, cmd, bang)
+  let dispatch = a:bang ? 'Dispatch' : 'Start'
+  execute(printf(":%s -dir=%s yarn %s", dispatch, a:pckg, a:cmd))
 endfun
 
-command! -nargs=* Launch :call s:launch(GetPackageName(), <q-args>)
+command! -nargs=* -bang Launch :call s:launch(GetPackageName(), <q-args>, <bang>1)

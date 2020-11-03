@@ -92,12 +92,6 @@ command! Ss mksession! $STPDIR/Session.vim
 map <silent><leader>xx <Cmd>Ex<cr>
 map <silent><leader>xt <Cmd>Vex<cr>
 
-fun GetPackageName()
-  let cwd = expand('%')
-  let currentPackage = matchstr(cwd, '\vpackages/[^/]+')
-  return currentPackage
-endfun
-
 " eurosport maps
 noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev:hmr<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
