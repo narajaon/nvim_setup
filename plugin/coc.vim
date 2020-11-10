@@ -1,13 +1,13 @@
 " list of the extensions required
 let g:coc_global_extensions = [
-            \'coc-snippets',
-            \'coc-json',
-            \'coc-tsserver',
-            \'coc-git',
-            \'coc-eslint',
-            \'coc-prettier',
-            \'coc-react-refactor',
-            \]
+      \'coc-snippets',
+      \'coc-json',
+      \'coc-tsserver',
+      \'coc-git',
+      \'coc-eslint',
+      \'coc-prettier',
+      \'coc-react-refactor',
+      \]
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -17,11 +17,22 @@ function! s:show_documentation()
   endif
 endfunction
 
-let g:coc_snippet_next = '<c-y>'
-imap <C-y> <Plug>(coc-snippets-expand)
-
 " Use K to show documentation in preview window.
 nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
+
+" Make <c-y> used for trigger completion, completion confirm, snippet expand and jump
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<c-y>'
+
+inoremap <silent><expr> <c-y>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<c-y>" :
+      \ coc#refresh()
 
 " go to next error
 nmap <silent> ]e <Plug>(coc-diagnostic-next)

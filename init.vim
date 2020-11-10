@@ -40,7 +40,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 " use fzf preview for coc-vim
 Plug 'antoinemadec/coc-fzf'
@@ -86,8 +86,12 @@ set laststatus=2
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
-set clipboard+=unnamedplus
+set nobackup
+set nowritebackup
+set shortmess+=c
+
 let g:netrw_altfile = 1
+let g:neovide_fullscreen=v:true
 
 " python provider
 set pyxversion=3

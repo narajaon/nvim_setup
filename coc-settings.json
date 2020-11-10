@@ -2,6 +2,7 @@
   "tsserver.npm": "/usr/local/bin/npm",
   "coc.preferences.rootPatterns": [".git", "package.json"],
   "eslint.autoFixOnSave": true,
+  "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "eslint.filetypes": [
     "typescript",
     "typescriptreact",

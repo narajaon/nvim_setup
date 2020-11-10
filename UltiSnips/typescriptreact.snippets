@@ -1,24 +1,21 @@
 snippet cons "declares a const variable" b
-const ${0:name} = ${1:value}
+const ${0:name} = ${1:value};
 endsnippet
 
 snippet let "declares a let variable" b
-let ${0:name} = ${1:value}
+let ${0:name} = ${1:value};
 endsnippet
 
 snippet fun "creates a function" b
 function ${0:functionName}(${1: arg}) {
-	coucou
 	$2
 }
 endsnippet
 
-snippet log "creates a console.log" b
-console.log(${0:'something'})
-endsnippet
-
 snippet cb "creates an arrow function" i
-(${0:arg}) => $1
+($0) => {
+	$1
+}
 endsnippet
 
 snippet if "creates an if block" b
