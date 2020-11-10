@@ -1,6 +1,6 @@
 {
-  "tsserver.npm": "/usr/local/bin/npm",
-  "coc.preferences.rootPatterns": [".git", "package.json"],
+  "npm.binPath": "~/.nvm/versions/node/v14.15.0/bin/npm",
+  "coc.preferences.rootPatterns": [".git"],
   "eslint.autoFixOnSave": true,
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "eslint.filetypes": [

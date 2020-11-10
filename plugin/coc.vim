@@ -9,6 +9,8 @@ let g:coc_global_extensions = [
       \'coc-react-refactor',
       \]
 
+let g:coc_node_path = '~/.nvm/versions/node/v14.15.0/bin/node'
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
