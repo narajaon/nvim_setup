@@ -3,6 +3,7 @@
   "coc.preferences.rootPatterns": [".git"],
   "eslint.autoFixOnSave": true,
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
+  "coc.source.buffer.ignoreGitignore": true,
   "eslint.filetypes": [
     "typescript",
     "typescriptreact",

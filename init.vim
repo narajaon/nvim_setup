@@ -89,7 +89,10 @@ set noshowmode noruler
 set nobackup
 set nowritebackup
 set shortmess+=c
+set undofile
 
+" netrw config
+let g:netrw_localrmdir='rm -rf'
 let g:netrw_altfile = 1
 let g:neovide_fullscreen=v:true
 
@@ -106,9 +109,7 @@ filetype plugin on
 let g:NERDSpaceDelims = 1
 
 " default folding strategy
-set foldmethod=indent "fold based on indent level
 set foldcolumn=0 "defines 1 col at window left, to indicate folding
-set foldopen=search,tag,insert
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
