@@ -44,7 +44,4 @@ fun Stool()
   endfor
 endfun
 
-nmap <silent><leader>tx :call Stool()<cr>
-nmap <silent><leader>tt :call Transf(getline('.'))<cr>
-
 command! -nargs=* -bang Launch :call s:launch(GetPackageName(), <q-args>, <bang>1)

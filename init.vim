@@ -82,7 +82,7 @@ set expandtab
 set mouse=a
 set tags=tags
 set nohlsearch
-set laststatus=2
+set laststatus=1
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
