@@ -1,4 +1,14 @@
 call plug#begin()
+
+" js highlight
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" ts highlight
+Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'andreypopp/vim-colors-plain'
+
 " NERD commenter
 Plug 'preservim/nerdcommenter'
 
@@ -47,18 +57,6 @@ Plug 'antoinemadec/coc-fzf'
 
 " auto pairs
 Plug 'jiangmiao/auto-pairs'
-
-" onedark.vim theme
-Plug 'joshdick/onedark.vim'
-
-" onehalf.vim theme
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-
-" one theme
-Plug 'rakr/vim-one'
-
-" syntax HL
-Plug 'sheerun/vim-polyglot'
 
 " auto change root dir
 Plug 'airblade/vim-rooter'
@@ -131,5 +129,4 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 set background=light        " for the light version
-let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
+colorscheme plain
