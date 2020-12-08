@@ -63,6 +63,9 @@ Plug 'sheerun/vim-polyglot'
 " auto change root dir
 Plug 'airblade/vim-rooter'
 
+" use neovim in the browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 " Put your non-Plugin stuff after this line

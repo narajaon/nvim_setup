@@ -1,5 +1,4 @@
 " eurosport related
-let s:packagePath = '~/Code/zephyr/packages'
 let s:bin = 'yarn'
 let s:packageDirectory = 'packages'
 
@@ -20,19 +19,12 @@ fun Transf(path)
   return printf("import %s from \'@eurosport/web-toolkit/%s\'", res, p)
 endfun
 
-let s:imps = { "breakpoints" : "import breakpoints from '@eurosport/web-toolkit/breakpoints';",
-      \"colors": "import colors from '@eurosport/web-toolkit/colors';",
-      \"ThemeWrapper": "import ThemeWrapper from '@eurosport/web-toolkit/theme.wrapper';",
-      \"typography": "import typography from '@eurosport/web-toolkit/typography';",
-      \"types": "import types from '@eurosport/web-toolkit/types';",
-      \}
-
 fun Tool(wor)
   let current = a:wor
-  let path = split(system(printf("cat ./packages/web-toolkit/src/index.js | grep %s", current)), "\n")[0]
+  let path = split(system(printf("cat ./packages/core/src/index.js | grep %s", current)), "\n")[0]
   let fpath = split(path, '')[-1]
   let ffpath = substitute(join(split(fpath, '/')[1:], '/'), "'", '', 'g')
-  return printf("import %s from \'@eurosport/web-toolkit/%s\'", current, substitute(ffpath, ";", '', 'g'))
+  return printf("import %s from \'@core/%s\'", current, substitute(ffpath, ";", '', 'g'))
 endfun
 
 fun Stool()
@@ -43,5 +35,8 @@ fun Stool()
     call append(line('.'), Tool(imp))
   endfor
 endfun
+
+nmap <silent><leader>tx :call Stool()<cr>
+nmap <silent><leader>tt :call Transf(getline('.'))<cr>
 
 command! -nargs=* -bang Launch :call s:launch(GetPackageName(), <q-args>, <bang>1)
