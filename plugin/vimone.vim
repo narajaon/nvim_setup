@@ -9,35 +9,42 @@ endfunc
 hi Folded guifg=#cccccc guibg=none
 hi Visual guifg=none guibg=#d0f5ec
 hi String guifg=#43aa8b guibg=none 
-hi String guifg=#43aa8b guibg=none 
 hi Include guifg=none guibg=none 
-hi StorageClass guifg=#cccccc guibg=none gui=none
+hi Structure guifg=#008EC4 guibg=none
 hi Conditional guifg=#43aa8b guibg=none gui=bold
-hi xmlAttrib guifg=#cccccc guibg=none gui=none
+hi default link StorageClass Folded
+hi default link xmlAttrib Folded
 hi xmlTag guifg=none guibg=none gui=none
-hi Include guifg=#cccccc guibg=none gui=none
-hi Comment guifg=#cccccc guibg=none gui=none
+hi default link Include Folded
+hi default link Comment Folded
+
+" help
+hi default link helpOption String
+
+" Coc
+hi CocErrorFloat guifg=#C30771 guibg=none
 
 " JS specific
-hi jsArrowFunction guifg=#43aa8b guibg=none gui=bold
-hi jsTry guifg=#43aa8b guibg=none gui=bold
-hi jsCatch guifg=#43aa8b guibg=none gui=bold
-hi jsReturn guifg=#43aa8b guibg=none gui=bold
-hi jsFuncCall guifg=#008EC4 guibg=none gui=bold
-hi jsClassFuncName guifg=#008EC4 guibg=none gui=bold
+hi default link jsArrowFunction Conditional
+hi default link jsTry Conditional
+hi default link jsCatch Conditional
+hi default link jsReturn Conditional
+hi default link jsFuncCall Structure
+hi default link jsClassFuncName Structure
 
 " TS specific
-hi typescriptExport guifg=#cccccc guibg=none gui=none
-hi typescriptImport guifg=#cccccc guibg=none gui=none
-hi typescriptDefault guifg=#cccccc guibg=none gui=none
-hi typescriptVariable guifg=#cccccc guibg=none gui=none
-hi jsClassKeyword guifg=#cccccc guibg=none gui=none
-hi jsExtendsKeyword guifg=#cccccc guibg=none gui=none
-hi tsxAttrib guifg=#cccccc guibg=none gui=none
-hi typescriptDestructureVariable guifg=#cccccc guibg=none gui=none
-hi typescriptObjectLabel guifg=#cccccc guibg=none gui=none
-hi typescriptStatementKeyword guifg=#43aa8b guibg=none gui=bold
-hi typescriptArrowFunc guifg=#43aa8b guibg=none gui=bold
-hi typescriptFuncCallArg guifg=#cccccc guibg=none gui=none
+hi default link typescriptIdentifierName Structure
+hi default link typescriptExport Folded
+hi default link typescriptImport Folded
+hi default link typescriptDefault Folded
+hi default link typescriptVariable Folded
+hi default link jsClassKeyword Folded
+hi default link jsExtendsKeyword Folded
+hi default link tsxAttrib Folded
+hi default link typescriptDestructureVariable Folded
+hi default link typescriptObjectLabel Folded
+hi default link typescriptFuncCallArg Folded
+hi default link typescriptStatementKeyword Conditional
+hi default link typescriptArrowFunc Conditional
 
 nmap <leader>hg <cmd>call SynStack()<cr>

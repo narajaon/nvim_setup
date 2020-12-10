@@ -1,72 +1,69 @@
 call plug#begin()
+  " js highlight
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
 
-" js highlight
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+  " ts highlight
+  Plug 'HerringtonDarkholme/yats.vim'
 
-" ts highlight
-Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'andreypopp/vim-colors-plain'
 
-Plug 'andreypopp/vim-colors-plain'
+  " NERD commenter
+  Plug 'preservim/nerdcommenter'
 
-" NERD commenter
-Plug 'preservim/nerdcommenter'
+  " Make wildignore == .gitignore
+  Plug 'vim-scripts/gitignore'
 
-" Make wildignore == .gitignore
-Plug 'vim-scripts/gitignore'
+  " note taking and stuff
+  Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
-" note taking and stuff
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+  " css color highlight
+  Plug 'ap/vim-css-color'
 
-" css color highlight
-Plug 'ap/vim-css-color'
+  " add custom text objects
+  Plug 'kana/vim-textobj-user'
 
-" add custom text objects
-Plug 'kana/vim-textobj-user'
+  " surrounding
+  Plug 'tpope/vim-surround'
 
-" surrounding
-Plug 'tpope/vim-surround'
+  " Testing util
+  Plug 'vim-test/vim-test'
 
-" Testing util
-Plug 'vim-test/vim-test'
+  " quickscope
+  Plug 'unblevable/quick-scope'
 
-" quickscope
-Plug 'unblevable/quick-scope'
+  " file explorer
+  Plug 'tpope/vim-vinegar'
 
-" file explorer
-Plug 'tpope/vim-vinegar'
+  " fugitive
+  Plug 'tpope/vim-fugitive'
 
-" fugitive
-Plug 'tpope/vim-fugitive'
+  " Async dispatch
+  Plug 'tpope/vim-dispatch'
 
-" Async dispatch
-Plug 'tpope/vim-dispatch'
+  " onestatus
+  Plug 'narajaon/onestatus', { 'branch': 'master' }
 
-" onestatus
-Plug 'narajaon/onestatus', { 'branch': 'master' }
+  " fzf
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+  " auto completion
+  Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
-" auto completion
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+  " use fzf preview for coc-vim
+  Plug 'antoinemadec/coc-fzf'
 
-" use fzf preview for coc-vim
-Plug 'antoinemadec/coc-fzf'
+  " auto pairs
+  Plug 'jiangmiao/auto-pairs'
 
-" auto pairs
-Plug 'jiangmiao/auto-pairs'
+  " auto change root dir
+  Plug 'airblade/vim-rooter'
 
-" auto change root dir
-Plug 'airblade/vim-rooter'
-
-" use neovim in the browser
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
+  " use neovim in the browser
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " All of your Plugins must be added before the following line
-call plug#end()            " required
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 " basic conf
 if exists('+termguicolors')
@@ -75,11 +72,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-set relativenumber
-set number
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set relativenumber number
+set tabstop=2 shiftwidth=2 expandtab
 set mouse=a
 set tags=tags
 set nohlsearch
@@ -87,8 +81,7 @@ set laststatus=1
 set ttimeoutlen=0
 set cedit=<c-y>
 set noshowmode noruler
-set nobackup
-set nowritebackup
+set nobackup nowritebackup
 set shortmess+=c
 set undofile
 
