@@ -1,11 +1,8 @@
 call plug#begin()
-  " js highlight
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
+  " syntax HL
+  Plug 'sheerun/vim-polyglot'
 
-  " ts highlight
-  Plug 'HerringtonDarkholme/yats.vim'
-
+  " color theme
   Plug 'andreypopp/vim-colors-plain'
 
   " NERD commenter
