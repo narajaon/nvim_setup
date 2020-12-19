@@ -16,5 +16,5 @@ let g:fzf_colors =
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \'preview-fg': ['fg', 'String'],
-      \'preview-bg': ['bg', 'PmenuThumb'],
+      \'preview-bg': ['bg', 'fzf1'],
       \ 'header':  ['fg', 'LineNr'] }

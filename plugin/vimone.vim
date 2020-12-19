@@ -18,11 +18,12 @@ hi! default link xmlAttrib Folded
 hi! xmlTag guifg=none guibg=none gui=none
 hi! default link Include Folded
 hi! default link Comment Folded
+hi! DiffSign guifg=#fab005 guibg=none
 
 " help
 hi! default link helpOption String
 
 " Coc
-hi! CocErrorFloat guifg=#C30771 guibg=none
+hi! CocErrorFloat guifg=red guibg=none
 
 nmap <leader>hg <cmd>call SynStack()<cr>

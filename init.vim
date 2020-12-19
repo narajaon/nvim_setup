@@ -84,6 +84,8 @@ set noshowmode noruler
 set nobackup nowritebackup
 set shortmess+=c
 set undofile
+set thesaurus+=~/thesaurus.txt
+set dictionary+=/usr/share/dict/words
 
 " netrw config
 let g:netrw_localrmdir='rm -rf'
