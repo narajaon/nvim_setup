@@ -59,7 +59,6 @@ call plug#begin()
 
   " use neovim in the browser
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" All of your Plugins must be added before the following line
 call plug#end()
 
 " basic conf
@@ -87,14 +86,14 @@ set dictionary+=/usr/share/dict/words
 " netrw config
 let g:netrw_localrmdir='rm -rf'
 let g:netrw_altfile = 1
+
+" neovim GUI
 let g:neovide_fullscreen=v:true
 
 " python provider
 set pyxversion=3
 
 let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs
-
-syntax on
 
 filetype plugin on
 
@@ -108,7 +107,7 @@ set foldcolumn=0 "defines 1 col at window left, to indicate folding
 let test#strategy = "dispatch"
 
 " project root finding strategy
-let g:rooter_patterns = ['.git', 'Makefile']
+let g:rooter_patterns = ['.git']
 
 " vimwiki path
 let g:vimwiki_list = [{'path': '~/.config/my_setup/wiki', 'path_html': '~/public_html/'}]

@@ -1,3 +1,2 @@
+runtime syntax/javascript.vim
 runtime syntax/typescript.vim
-
-hi! default link jsxTagName Structure

@@ -9,15 +9,16 @@ endfunc
 hi! EndOfBuffer guifg=#fbfbfb guibg=#fbfbfb
 hi! Folded guifg=#cccccc guibg=none
 hi! Visual guifg=none guibg=#d0f5ec
-hi! String guifg=#43aa8b guibg=none 
+hi! String guifg=#1ea896 guibg=none 
 hi! Include guifg=none guibg=none 
-hi! Structure guifg=#008EC4 guibg=none
-hi! Conditional guifg=#43aa8b guibg=none gui=bold
+hi! Structure guifg=#736ced guibg=none
+hi! Conditional guifg=#1ea896 guibg=none gui=bold
 hi! default link StorageClass Folded
 hi! default link xmlAttrib Folded
 hi! xmlTag guifg=none guibg=none gui=none
 hi! default link Include Folded
 hi! default link Comment Folded
+hi! default link LineNr Folded
 hi! DiffSign guifg=#fab005 guibg=none
 
 " help

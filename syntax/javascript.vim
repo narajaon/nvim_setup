@@ -6,4 +6,5 @@ hi! default link jsOperationKeyword Conditional
 hi! default link jsFuncCall Structure
 hi! default link jsClassFuncName Structure
 
-hi! default link jsxComponentName Structure
+hi! jsxComponentName guifg=#ff6b6b guibg=none
+hi! jsxTagName guifg=#ff9770 guibg=none

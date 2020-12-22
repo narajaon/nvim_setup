@@ -3,8 +3,14 @@ let s:bin = 'yarn'
 let s:packageDirectory = 'packages'
 
 fun GetPackageName()
-  let cwd = expand('%')
-  let currentPackage = matchstr(cwd, printf('\v%s/[^/]+', s:packageDirectory))
+  let filePath = expand('%')
+  let packagePath = printf('\v%s/[^/]+', s:packageDirectory)
+  let currentPackage = matchstr(filePath, packagePath)
+  
+  if packagePath =~ ''
+    return getcwd()
+  endif
+
   return currentPackage
 endfun
 
