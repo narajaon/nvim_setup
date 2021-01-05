@@ -11,9 +11,6 @@ call plug#begin()
   " Make wildignore == .gitignore
   Plug 'vim-scripts/gitignore'
 
-  " note taking and stuff
-  Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-
   " css color highlight
   Plug 'ap/vim-css-color'
 
@@ -59,6 +56,9 @@ call plug#begin()
 
   " use neovim in the browser
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+  " vim theme
+  Plug 'rakr/vim-one'
 call plug#end()
 
 " basic conf
@@ -82,35 +82,33 @@ set shortmess+=c
 set undofile
 set thesaurus+=~/thesaurus.txt
 set dictionary+=/usr/share/dict/words
+set inccommand=nosplit
+
 
 " netrw config
 let g:netrw_localrmdir='rm -rf'
 let g:netrw_altfile = 1
-
-" neovim GUI
-let g:neovide_fullscreen=v:true
 
 " python provider
 set pyxversion=3
 
 let test#javascript#jest#executable = "CI=true yarn jest" " no color characters for jest outputs
 
-filetype plugin on
+filetype plugin indent on
+syntax on
 
 " add one space after comment
 let g:NERDSpaceDelims = 1
 
 " default folding strategy
 set foldcolumn=0 "defines 1 col at window left, to indicate folding
+set nofoldenable
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
 
 " project root finding strategy
 let g:rooter_patterns = ['.git']
-
-" vimwiki path
-let g:vimwiki_list = [{'path': '~/.config/my_setup/wiki', 'path_html': '~/public_html/'}]
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -120,4 +118,5 @@ au ColorScheme * highlight QuickScopePrimary guifg='#00ff87' ctermfg=48 gui=unde
 au ColorScheme * highlight QuickScopeSecondary guifg='#d700ff'ctermfg=165 gui=underline
 
 set background=light        " for the light version
+
 colorscheme plain

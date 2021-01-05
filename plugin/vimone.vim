@@ -17,9 +17,11 @@ hi! default link StorageClass Folded
 hi! default link xmlAttrib Folded
 hi! xmlTag guifg=none guibg=none gui=none
 hi! default link Include Folded
-hi! default link Comment Folded
 hi! default link LineNr Folded
 hi! DiffSign guifg=#fab005 guibg=none
+
+" remove statement bold
+hi! default link Statement Normal
 
 " help
 hi! default link helpOption String

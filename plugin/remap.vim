@@ -38,20 +38,12 @@ nmap <leader>fr :Rg 
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
-noremap ^" 0 Just in case you need to go to the very beginning of a line
+noremap ^ 0" Just in case you need to go to the very beginning of a line
 
 " EMACS STYLE COMMAND LINE
 " start and end
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
-
-" ctrl p in command line to search in hist
-cmap <C-P> <up>
-cmap <C-N> <down>
-
-" <- and ->
-cnoremap <C-B> <Left>
-cnoremap <C-F> <Right>
 
 " delete character under cursor
 cnoremap <C-D> <Del>
