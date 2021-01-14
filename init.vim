@@ -103,6 +103,7 @@ let g:NERDSpaceDelims = 1
 " default folding strategy
 set foldcolumn=0 "defines 1 col at window left, to indicate folding
 set nofoldenable
+set foldtext=v:folddashes
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"

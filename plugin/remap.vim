@@ -34,7 +34,7 @@ nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
 vmap <leader>fw :%s/<C-R><C-*>/gc<left><left><left>
 
 " search occurence project wide
-nmap <leader>fr :Rg 
+nmap <leader>fr :CocSearch 
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
@@ -85,7 +85,7 @@ map <silent><leader>xx <Cmd>Ex<cr>
 map <silent><leader>xt <Cmd>Vex<cr>
 
 " eurosport maps
-noremap <silent><leader>xd <Cmd>Start -dir=packages/eurosport-toolkit-server yarn next:dev:hmr<cr>
+noremap <silent><leader>xd <Cmd>Start -dir=packages/renderer yarn next:dev:hmr<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
 noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
 noremap <silent><leader>tf <Cmd>TestFile<cr>

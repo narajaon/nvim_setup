@@ -1,22 +1,29 @@
 " eurosport related
+let s:packagePath = '~/Code/zephyr/packages'
 let s:bin = 'yarn'
 let s:packageDirectory = 'packages'
 
 fun GetPackageName()
-  let filePath = expand('%')
-  let packagePath = printf('\v%s/[^/]+', s:packageDirectory)
-  let currentPackage = matchstr(filePath, packagePath)
-  
-  if packagePath =~ ''
-    return getcwd()
-  endif
-
+  let cwd = expand('%')
+  let currentPackage = matchstr(cwd, printf('\v%s/[^/]+', s:packageDirectory))
   return currentPackage
+  
+  " let filePath = expand('%')
+  " let packagePath = printf('\v%s/[^/]+', s:packageDirectory)
+  " let currentPackage = matchstr(filePath, packagePath)
+  
+  " if packagePath =~ ''
+    " return getcwd()
+  " endif
+
+  " return currentPackage
 endfun
 
 fun s:launch(pckg, cmd, bang)
   let dispatch = a:bang ? 'Dispatch' : 'Start'
-  execute(printf(":%s -dir=%s %s %s", dispatch, a:pckg, s:bin, a:cmd))
+  let cmd = printf(":%s -dir=%s %s %s", dispatch, a:pckg, s:bin, a:cmd)
+  echo cmd
+  execute(cmd)
 endfun
 
 fun Transf(path)
