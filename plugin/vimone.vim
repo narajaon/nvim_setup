@@ -7,6 +7,8 @@ endfunc
 
 " Generic
 hi! EndOfBuffer guifg=#fbfbfb guibg=#fbfbfb
+hi! StatusLineNC guibg=#fbfbfb guifg=#ccdbfd gui=none
+hi! StatusLine guibg=#fbfbfb guifg=#abc4ff gui=none
 hi! Folded guifg=#cccccc guibg=none
 hi! Visual guifg=none guibg=#d0f5ec
 hi! String guifg=#1ea896 guibg=none 
@@ -19,6 +21,7 @@ hi! xmlTag guifg=none guibg=none gui=none
 hi! default link Include Folded
 hi! default link LineNr Folded
 hi! DiffSign guifg=#fab005 guibg=none
+hi! TabLineSel guifg=#fbfbfb guibg=#abc4ff gui=none
 
 " remove statement bold
 hi! default link Statement Normal

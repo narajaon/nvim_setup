@@ -1,9 +1,6 @@
 " unmap digraphs
 cmap <c-k> <Nop>
 
-" remap enter
-nnoremap <enter> @:
-
 " remap leader
 let g:mapleader = " "
 
@@ -32,9 +29,6 @@ nmap <leader>w <C-W>
 " search and replace with confirmation
 nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
 vmap <leader>fw :%s/<C-R><C-*>/gc<left><left><left>
-
-" search occurence project wide
-nmap <leader>fr :CocSearch 
 
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
