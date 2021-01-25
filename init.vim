@@ -68,6 +68,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+set clipboard^=unnamed,unnamedplus
 set relativenumber number
 set tabstop=2 shiftwidth=2 expandtab
 set mouse=a
