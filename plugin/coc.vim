@@ -7,6 +7,7 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-react-refactor',
+      \'coc-graphql'
       \]
 
 let g:coc_node_path = '~/.nvm/versions/node/v14.15.0/bin/node'
@@ -39,6 +40,9 @@ inoremap <silent><expr> <c-y>
 " go to next error
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
+
+" search occurence project wide
+nmap <leader>fr :CocSearch 
 
 " Show all diagnostics.
 nmap <silent>gq <Cmd><C-u>CocFzfList diagnostics<cr>
