@@ -4,6 +4,8 @@
   "eslint.autoFixOnSave": true,
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "coc.source.buffer.ignoreGitignore": true,
+  "tabnine.priority": 3,
+  "snippets.priority": 1000,
   "eslint.filetypes": [
     "typescript",
     "typescriptreact",

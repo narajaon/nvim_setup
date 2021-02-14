@@ -1,7 +1,3 @@
-" react-refactor
-xmap <leader>gr <Plug>(coc-codeaction-selected)
-nmap <leader>gr <Plug>(coc-codeaction-selected)
-
 function! JSFolds()
   let thisline = getline(v:lnum)
   if thisline =~? '\v^\s*$'

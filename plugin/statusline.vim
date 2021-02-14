@@ -6,9 +6,10 @@ endfun
 
 " statusline
 set statusline=
-set statusline+=\ %F
+set statusline+=\ %f\ %m\ %r
 set statusline+=%=
 set statusline+=\%y
+set fillchars+=vert:\ 
 
 function MyTabLine()
   let s = ''

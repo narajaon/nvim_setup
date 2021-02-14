@@ -1,5 +1,6 @@
 " list of the extensions required
 let g:coc_global_extensions = [
+      \'coc-tabnine',
       \'coc-snippets',
       \'coc-json',
       \'coc-tsserver',
@@ -42,7 +43,7 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 
 " search occurence project wide
-nmap <leader>fr :CocSearch 
+nnoremap g/ :CocSearch 
 
 " Show all diagnostics.
 nmap <silent>gq <Cmd><C-u>CocFzfList diagnostics<cr>
