@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
       \]
 
 let g:coc_node_path = '~/.nvm/versions/node/v14.15.0/bin/node'
+let g:coc_snippet_next = '<c-y>'
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -29,8 +30,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-let g:coc_snippet_next = '<c-y>'
 
 inoremap <silent><expr> <c-y>
       \ pumvisible() ? coc#_select_confirm() :
