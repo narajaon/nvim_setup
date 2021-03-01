@@ -1,3 +1,5 @@
+set rtp+=~/Code/onestatus/
+
 call plug#begin()
   " syntax HL
   Plug 'sheerun/vim-polyglot'
@@ -36,7 +38,7 @@ call plug#begin()
   Plug 'tpope/vim-dispatch'
 
   " onestatus
-  Plug 'narajaon/onestatus', { 'branch': 'master' }
+  " Plug 'narajaon/onestatus', { 'branch': 'master' }
 
   " fzf
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

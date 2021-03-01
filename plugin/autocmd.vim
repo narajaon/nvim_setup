@@ -121,7 +121,8 @@ let s:aulist = [
 
 aug narajaon#aug
   au!
-  au BufEnter,BufLeave * :OneStatus
+  au BufEnter,BufLeave,FocusGained * :OneStatus
+  au VimLeave * :OneStatusClean
   au FileType qf,help,fugitive,man wincmd L
   au BufEnter * let test#project_root=GetPackageName() " changes vim-test's root for monorepos
   au BufUnload,BufWrite * setlocal foldmethod=manual

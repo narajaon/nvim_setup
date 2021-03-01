@@ -1,7 +1,7 @@
 {
   "status-right": [
-    { "bg": "#fcfcfc", "fg": "#56cfe1", "labelFunc": "s:getCWD" },
-    { "bg": "#fcfcfc", "fg": "#4ea8de", "labelFunc": "s:getHead" }
+    { "bg": "#ffffff", "fg": "#56cfe1", "labelFunc": "s:getCWD" },
+    { "bg": "#ffffff", "fg": "#4ea8de", "labelFunc": "s:getHead" }
   ],
   "status-left": [
     { "fg": "#6c757d", "bg": "default", "labelFunc": "s:getFileName" }
