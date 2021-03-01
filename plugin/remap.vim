@@ -7,7 +7,9 @@ let g:mapleader = " "
 " project wide search
 let s:fzf_files_options = ["--layout=reverse", "--preview", "bat {} --theme=zenburn --color=always"]
 command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#wrap({'options': s:fzf_files_options}), <bang>0)
+
 nmap <c-p> <cmd>GFiles<cr>
+nmap <leader>P <cmd>CocList commands<cr>
 
 " path wide search
 fun Fzfiles()
@@ -33,18 +35,6 @@ vmap <leader>fw :%s/<C-R><C-*>/gc<left><left><left>
 " Move across wrapped lines like regular lines
 noremap 0 ^" Go to the first non-blank character of a line
 noremap ^ 0" Just in case you need to go to the very beginning of a line
-
-" EMACS STYLE COMMAND LINE
-" start and end
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-
-" delete character under cursor
-cnoremap <C-D> <Del>
-
-" back and forth one word
-cmap <nowait><A-b> <S-Left>
-cmap <nowait><A-f> <S-Right>
 
 " go to prev/next quickfix
 nmap <silent> ]l <Cmd>execute v:count1 . " lnext"<cr>

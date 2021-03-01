@@ -6,7 +6,7 @@ function! SynStack()
 endfunc
 
 " Generic
-hi! EndOfBuffer guifg=#fbfbfb guibg=#fbfbfb
+hi! EndOfBuffer guifg=#ffffff guibg=#ffffff
 hi! Folded guifg=#cccccc guibg=none
 hi! Visual guifg=none guibg=#ccff33
 hi! String guifg=#1ea896 guibg=none 
