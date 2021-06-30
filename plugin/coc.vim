@@ -8,10 +8,11 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-react-refactor',
-      \'coc-graphql'
+      \'coc-graphql',
+      \'coc-tailwindcss'
       \]
 
-let g:coc_node_path = '~/.nvm/versions/node/v14.15.0/bin/node'
+let g:coc_node_path = '~/.nvm/versions/node/v14.17.1/bin/node'
 let g:coc_snippet_next = '<c-y>'
 
 function! s:show_documentation()

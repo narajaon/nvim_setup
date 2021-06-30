@@ -72,7 +72,7 @@ map <silent><leader>xt <Cmd>Vex<cr>
 " eurosport maps
 noremap <silent><leader>xd <Cmd>Start -dir=packages/renderer yarn dev:hmr<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
-noremap <silent><leader>xr <Cmd>Dispatch -dir=packages/core yarn relay:compile<cr>
+noremap <silent><leader>xr <Cmd>Dispatch -dir=packages/core yarn relay:compile && yarn build<cr>
 noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
 noremap <silent><leader>tf <Cmd>TestFile<cr>
 noremap <silent><leader>tn <Cmd>TestNearest<cr>
