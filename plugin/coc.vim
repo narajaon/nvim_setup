@@ -9,7 +9,8 @@ let g:coc_global_extensions = [
       \'coc-prettier',
       \'coc-react-refactor',
       \'coc-graphql',
-      \'coc-tailwindcss'
+      \'coc-tailwindcss',
+      \'coc-yaml'
       \]
 
 let g:coc_node_path = '~/.nvm/versions/node/v14.17.1/bin/node'
