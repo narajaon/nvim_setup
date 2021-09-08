@@ -87,6 +87,9 @@ set thesaurus+=~/thesaurus.txt
 set dictionary+=/usr/share/dict/words
 set inccommand=nosplit
 
+" use ripgrep as vimgrep
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 " netrw config
 let g:netrw_localrmdir='rm -rf'
