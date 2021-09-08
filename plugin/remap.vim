@@ -13,9 +13,9 @@ nmap <leader>P <cmd>CocList commands<cr>
 
 " path wide search
 fun Fzfiles()
-  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/my_setup']
+  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/my_setup', '$HOME/Code']
   let paths = join(map(fzf_dir_paths, {_,v -> expand(v)}))
-  call fzf#run(fzf#wrap({'source': 'fdfind -t f . ' . paths, 'sink': 'e', 'options': s:fzf_files_options}))
+  call fzf#run(fzf#wrap({'source': 'fd -t f . ' . paths, 'sink': 'e', 'options': s:fzf_files_options}))
 endfun
 nmap <leader>p <cmd>call Fzfiles()<cr>
 
