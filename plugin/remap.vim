@@ -32,10 +32,6 @@ nmap <leader>w <C-W>
 nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
 vmap <leader>fw :%s/<C-R><C-*>/gc<left><left><left>
 
-" Move across wrapped lines like regular lines
-noremap 0 ^" Go to the first non-blank character of a line
-noremap ^ 0" Just in case you need to go to the very beginning of a line
-
 " go to prev/next quickfix
 nmap <silent> ]l <Cmd>execute v:count1 . " lnext"<cr>
 nmap <silent> [l <Cmd>execute v:count1 . " lprev"<cr>
