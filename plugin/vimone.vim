@@ -23,7 +23,7 @@ hi! TabLineSel guifg=#fbfbfb guibg=#8338ec gui=none
 hi! StatusLine guifg=#fbfbfb guibg=#8338ec gui=none
 hi! StatusLineNC guifg=#fbfbfb guibg=#e9ecef gui=none
 hi! default link VertSplit StatusLineNC
-
+hi! default link CocUnusedHighlight WarningMsg
 " remove statement bold
 hi! default link Statement Normal
 
