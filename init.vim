@@ -1,6 +1,9 @@
 set rtp+=~/Code/onestatus/
 
 call plug#begin()
+  " replacement for netrw
+  Plug 'justinmk/vim-dirvish'
+
   " syntax HL
   Plug 'sheerun/vim-polyglot'
 
