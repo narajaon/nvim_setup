@@ -7,7 +7,6 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.9 } }
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.config/fzf-history'
 
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'Normal'],
