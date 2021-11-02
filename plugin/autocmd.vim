@@ -128,6 +128,7 @@ aug narajaon#aug
   au BufEnter * let test#project_root=GetPackageName() " changes vim-test's root for monorepos
   au BufUnload,BufWrite * setlocal foldmethod=manual
   au BufWinEnter,BufWritePost * setlocal foldmethod=indent
+  au FileType dirvish nnoremap <buffer><silent> <c-p> <cmd>GFiles<cr>
 
   au FileType dirvish nmap <silent><buffer> <c-p> <cmd>GFiles<cr>
 
