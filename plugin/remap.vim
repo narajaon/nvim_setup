@@ -13,7 +13,7 @@ nmap <leader>P <cmd>CocList commands<cr>
 
 " path wide search
 fun Fzfiles()
-  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/my_setup', '$HOME/Code']
+  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/yadm', '$HOME/.config/my_setup']
   let paths = join(map(fzf_dir_paths, {_,v -> expand(v)}))
   call fzf#run(fzf#wrap({'source': 'fd -t f . ' . paths, 'sink': 'e', 'options': s:fzf_files_options}))
 endfun
@@ -58,8 +58,8 @@ nnoremap <leader>ld <cmd>CocList diagnostics<cr>
 nnoremap <leader>lb <cmd>Buffers<cr>
 
 " Save session
-command! Ss mksession! $STPDIR/Session.vim
-command! Sr source $STPDIR/Session.vim
+command! Ss mksession! $HOME/Session.vim
+command! Sr source $HOME/Session.vim
 
 " open file explorer
 map <silent><leader>xx <Cmd>Ex<cr>
