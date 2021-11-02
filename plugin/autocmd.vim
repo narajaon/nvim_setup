@@ -130,9 +130,6 @@ aug narajaon#aug
   au BufWinEnter,BufWritePost * setlocal foldmethod=indent
 
   au FileType dirvish nmap <silent><buffer> <c-p> <cmd>GFiles<cr>
-  au FileType dirvish nmap % :e %/
-  au FileType dirvish nmap D :!rm 
-  au FileType dirvish nmap d :!mkdir %/
 
   if !exists('g:lastTab')
     let g:lastTab = 1

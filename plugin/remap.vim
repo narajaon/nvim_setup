@@ -61,10 +61,6 @@ nnoremap <leader>lb <cmd>Buffers<cr>
 command! Ss mksession! $HOME/Session.vim
 command! Sr source $HOME/Session.vim
 
-" open file explorer
-map <silent><leader>xx <Cmd>Ex<cr>
-map <silent><leader>xt <Cmd>Vex<cr>
-
 " eurosport maps
 noremap <silent><leader>xd <Cmd>Start -dir=packages/renderer yarn next:dev<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
@@ -73,6 +69,10 @@ noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
 noremap <silent><leader>tf <Cmd>TestFile<cr>
 noremap <silent><leader>tn <Cmd>TestNearest<cr>
 
+" dervish
+noremap <leader>df :e %/
+noremap <leader>dd :!mkdir %/
+noremap <leader>dD :!rm 
 
 " open jump fzf
 nmap <leader>j <cmd>Jump<cr>
