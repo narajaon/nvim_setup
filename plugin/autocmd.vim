@@ -119,6 +119,7 @@ let s:aulist = [
       \ 'User',
       \ ]
 
+
 aug narajaon#aug
   au!
   au BufEnter,BufLeave,FocusGained * :OneStatus
@@ -127,6 +128,11 @@ aug narajaon#aug
   au BufEnter * let test#project_root=GetPackageName() " changes vim-test's root for monorepos
   au BufUnload,BufWrite * setlocal foldmethod=manual
   au BufWinEnter,BufWritePost * setlocal foldmethod=indent
+
+  au FileType dirvish nmap <silent><buffer> <c-p> <cmd>GFiles<cr>
+  au FileType dirvish nmap % :e %/
+  au FileType dirvish nmap D :!rm 
+  au FileType dirvish nmap d :!mkdir %/
 
   if !exists('g:lastTab')
     let g:lastTab = 1
