@@ -73,6 +73,9 @@ noremap <silent><leader>tn <Cmd>TestNearest<cr>
 noremap <leader>df :e %/
 noremap <leader>dd :!mkdir %/
 noremap <leader>dD :!rm 
+noremap <leader>dm :!mv  
+
+ 
 
 " open jump fzf
 nmap <leader>j <cmd>Jump<cr>
