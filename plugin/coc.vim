@@ -16,15 +16,6 @@ let g:coc_global_extensions = [
 let g:coc_node_path = '~/.nvm/versions/node/v14.17.1/bin/node'
 let g:coc_snippet_next = '<c-y>'
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')

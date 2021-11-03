@@ -15,3 +15,5 @@ hi! default link tsxAttrib Folded
 hi! default link typescriptObjectType Conditional
 hi! default link typescriptStatementKeyword Conditional
 hi! default link typescriptArrowFunc Conditional
+
+hi! typescriptClassKeyword guifg=#ff9770 guibg=none
