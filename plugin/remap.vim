@@ -1,3 +1,19 @@
+" emacs style
+" start of line
+:cnoremap <C-A>		<Home>
+" delete character under cursor
+:cnoremap <C-D>		<Del>
+" end of line
+:cnoremap <C-E>		<End>
+" recall newer command-line
+:cnoremap <C-N>		<Down>
+" recall previous (older) command-line
+:cnoremap <C-P>		<Up>
+" back one word
+:cnoremap <M-b>	<S-Left>
+" forward one word
+:cnoremap <M-f>	<S-Right>
+
 " unmap digraphs
 cmap <c-k> <Nop>
 
@@ -30,7 +46,10 @@ nmap <leader>w <C-W>
 
 " search and replace with confirmation
 nmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
-vmap <leader>fw :%s/<C-R><C-*>/gc<left><left><left>
+vmap <leader>fw :%s/<C-R><C-W>/gc<left><left><left>
+
+" search and replace in all the project
+nmap <leader>gw :vim /<C-R><C-W>/ <C-E>`git ls-files`
 
 " go to prev/next quickfix
 nmap <silent> ]l <Cmd>execute v:count1 . " lnext"<cr>
@@ -74,8 +93,6 @@ noremap <leader>df :e %/
 noremap <leader>dd :!mkdir %/
 noremap <leader>dD :!rm 
 noremap <leader>dm :!mv  
-
- 
 
 " open jump fzf
 nmap <leader>j <cmd>Jump<cr>

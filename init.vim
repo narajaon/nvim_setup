@@ -77,10 +77,9 @@ set clipboard^=unnamed,unnamedplus
 set relativenumber number
 
 " tabsize
-set expandtab " Use space, not tabs
-set shiftround  " Round indent to multiple of 'shiftwidth'
-set smartindent " Do smart indenting when starting a new line
-set autoindent  " Copy indent from current line, over to the new line
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Set the tab width
 let s:tabwidth=2
