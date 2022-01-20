@@ -91,7 +91,7 @@ noremap <silent><leader>tn <Cmd>TestNearest<cr>
 " dervish
 noremap <leader>df :e %/
 noremap <leader>dd :!mkdir %/
-noremap <leader>dD :!rm 
+noremap <leader>dD :!rm -rf 
 noremap <leader>dm :!mv  
 
 " open jump fzf

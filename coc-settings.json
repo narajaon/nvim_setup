@@ -3,19 +3,13 @@
   "coc.preferences.rootPatterns": [".git"],
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "coc.source.buffer.ignoreGitignore": true,
-  "tabnine.priority": 110,
-  "snippets.priority": 100,
+  "tabnine.priority": 100,
+  "snippets.priority": 110,
   "snippets.ultisnips.enable": true,
   "coc.preferences.formatOnType": true,
   "tailwindCSS.headwind.runOnSave": false,
   "coc.preferences.formatOnTypeFiletypes": ["jsx", "js", "tsx", "ts", "json" ],
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "typescript",
-    "typescriptreact",
-    "javascript",
-    "javascriptreact"
-  ],
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
     "typescriptreact",
