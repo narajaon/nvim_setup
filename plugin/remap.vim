@@ -81,7 +81,7 @@ command! Ss mksession! $HOME/Session.vim
 command! Sr source $HOME/Session.vim
 
 " eurosport maps
-noremap <silent><leader>xd <Cmd>Start -dir=packages/renderer yarn next:dev<cr>
+noremap <silent><leader>xd <Cmd>Start -dir=packages/renderer yarn dev<cr>
 noremap <silent><leader>xc <Cmd>Dispatch -dir=packages/core yarn build<cr>
 noremap <silent><leader>xr <Cmd>Dispatch -dir=packages/core yarn prepare<cr>
 noremap <silent><leader>xu <Cmd>Dispatch -dir=packages/ui yarn build<cr>
