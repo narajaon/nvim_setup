@@ -13,9 +13,6 @@ call plug#begin()
   " NERD commenter
   Plug 'preservim/nerdcommenter'
 
-  " Make wildignore == .gitignore
-  Plug 'vim-scripts/gitignore'
-
   " css color highlight
   Plug 'ap/vim-css-color'
 

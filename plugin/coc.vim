@@ -48,8 +48,7 @@ nnoremap g/ :CocSearch 
 nmap <silent>gq <Cmd><C-u>CocFzfList diagnostics<cr>
 
 " show corresponding actions
-nnoremap <silent>ga <cmd>CocAction<cr>
-vnoremap <silent>ga  <cmd>'<,'>CocAction<cr>
+nmap <silent>ga <Plug>(coc-codeaction)
 
 " remap gotos
 nmap <silent>gd <Plug>(coc-definition)
