@@ -44,9 +44,6 @@ nmap <silent> [e <Plug>(coc-diagnostic-prev)
 " search occurence project wide
 nnoremap g/ :CocSearch 
 
-" Show all diagnostics.
-nmap <silent>gq <Cmd><C-u>CocFzfList diagnostics<cr>
-
 " show corresponding actions
 nmap <silent>ga <Plug>(coc-codeaction)
 
