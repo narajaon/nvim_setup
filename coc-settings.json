@@ -1,5 +1,10 @@
 {
   "npm.binPath": "~/.nvm/versions/node/v14.17.1/bin/npm",
+  "coc.source.file.ignorePatterns": [".turbo-cache"],
+  "workspace.ignoredFolders": [
+    "$HOME",
+    ".turbo-cache"
+  ],
   "coc.preferences.rootPatterns": [".git"],
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "coc.source.buffer.ignoreGitignore": true,
