@@ -1,5 +1,5 @@
 {
-  "npm.binPath": "~/.nvm/versions/node/v14.17.1/bin/npm",
+  "npm.binPath": "~/.nvm/versions/node/v14.17.5/bin/npm",
   "coc.source.file.ignorePatterns": [".turbo-cache"],
   "workspace.ignoredFolders": [
     "$HOME",
@@ -8,8 +8,6 @@
   "coc.preferences.rootPatterns": [".git"],
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "coc.source.buffer.ignoreGitignore": true,
-  "tabnine.priority": 100,
-  "snippets.priority": 110,
   "snippets.ultisnips.enable": true,
   "coc.preferences.formatOnType": true,
   "tailwindCSS.headwind.runOnSave": false,
