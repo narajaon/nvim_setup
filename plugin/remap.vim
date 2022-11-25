@@ -38,8 +38,8 @@ nmap <leader>p <cmd>call Fzfiles()<cr>
 " normal mode in term
 tmap <C-o> <C-\><C-n>
 
-" go directly to 5th line in fugitive
-cmap G<cr> G<cr> \| ]]=
+" open vertically fugitive
+cnoremap G<cr> vertical rightbelow G<cr> \| ]]
 
 " remap CTRL-W
 nmap <leader>w <C-W>
