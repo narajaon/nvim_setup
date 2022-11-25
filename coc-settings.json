@@ -1,5 +1,4 @@
 {
-  "npm.binPath": "~/.nvm/versions/node/v18.12.1/bin/npm",
   "coc.source.file.ignorePatterns": [".turbo-cache"],
   "workspace.ignoredFolders": [
     "$HOME",

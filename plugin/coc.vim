@@ -13,7 +13,7 @@ let g:coc_global_extensions = [
       \'coc-yaml'
       \]
 
-let g:coc_node_path = '~/.nvm/versions/node/v18.12.1/bin/node'
+let g:coc_node_path = printf('%s/node', $NVM_BIN)
 let g:coc_snippet_next = '<c-y>'
 
 function! ShowDocumentation()
