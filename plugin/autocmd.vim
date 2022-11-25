@@ -124,7 +124,7 @@ aug narajaon#aug
   au!
   au BufEnter,BufLeave,FocusGained * :OneStatus
   au VimLeave * :OneStatusClean
-  au FileType qf,help,fugitive,man wincmd L
+  au FileType qf,help,man wincmd L
   au BufEnter * let test#project_root=GetPackageName() " changes vim-test's root for monorepos
   au BufUnload,BufWrite * setlocal foldmethod=manual
   au BufWinEnter,BufWritePost * setlocal foldmethod=indent
