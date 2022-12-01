@@ -21,19 +21,10 @@ cmap <c-k> <Nop>
 let g:mapleader = " "
 
 " project wide search
-let s:fzf_files_options = ["--layout=reverse", "--preview", "bat {} --theme=zenburn --color=always"]
-command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#wrap({'options': s:fzf_files_options}), <bang>0)
+command! -nargs=0 -bang GFiles call fzf#vim#gitfiles('', fzf#vim#with_preview(), <bang>0)
 
 nmap <c-p> <cmd>GFiles<cr>
 nmap <leader>P <cmd>CocList commands<cr>
-
-" path wide search
-fun Fzfiles()
-  let fzf_dir_paths = ['$MYVIMDIR', '$GPDIR', '$HOME/.config/yadm', '$HOME/.config/my_setup']
-  let paths = join(map(fzf_dir_paths, {_,v -> expand(v)}))
-  call fzf#run(fzf#wrap({'source': 'fd -t f . ' . paths, 'sink': 'e', 'options': s:fzf_files_options}))
-endfun
-nmap <leader>p <cmd>call Fzfiles()<cr>
 
 " normal mode in term
 tmap <C-o> <C-\><C-n>

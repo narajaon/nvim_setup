@@ -9,7 +9,7 @@ endif
 let g:loaded_fzf_jump= 1
 
 " change default layout
-let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse", "--preview", "$MYVIMDIR/preview.sh {2}" ]
+let g:fzf_jump_options = ["--prompt",  "Jumps>","--tac","--reverse"]
 
 function s:floatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
