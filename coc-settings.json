@@ -1,25 +1,14 @@
 {
   "coc.source.file.ignorePatterns": [".turbo-cache"],
-  "workspace.ignoredFolders": [
-    "$HOME",
-    ".turbo-cache"
-  ],
-  "coc.preferences.rootPatterns": [".git"],
+  "workspace.ignoredFolders": ["$HOME", ".turbo-cache"],
+  "workspace.rootPatterns": [".git"],
   "snippets.ultisnips.directories": ["~/.config/nvim/UltiSnips"],
   "coc.source.buffer.ignoreGitignore": true,
-  "tabnine.priority": 100,
-  "suggest.languageSourcePriority": 90,
+  "tabnine.priority": 90,
+  "suggest.languageSourcePriority": 100,
   "snippets.priority": 120,
   "tabnine.enablePreselect": false,
   "snippets.ultisnips.enable": true,
-  "coc.preferences.formatOnType": true,
   "tailwindCSS.headwind.runOnSave": false,
-  "coc.preferences.formatOnTypeFiletypes": ["jsx", "js", "tsx", "ts", "json" ],
-  "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
-    "typescriptreact",
-    "json",
-    "graphql"
-  ]
+  "coc.preferences.formatOnSave": true
 }
