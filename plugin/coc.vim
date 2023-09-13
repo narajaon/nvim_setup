@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-react-refactor',
-      \'coc-graphql',
       \'coc-tailwindcss',
       \'coc-yaml'
       \]
