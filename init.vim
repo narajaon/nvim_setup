@@ -61,6 +61,8 @@ call plug#begin()
 
   " vim theme
   Plug 'rakr/vim-one'
+
+  Plug 'nicwest/vim-camelsnek'
 call plug#end()
 
 " basic conf
@@ -101,6 +103,12 @@ set inccommand=nosplit
 " use ripgrep as vimgrep
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+" vim camelsnek
+" :Camel  -> :Pascal
+" :CamelB -> :Camel
+let g:camelsnek_alternative_camel_commands = 1
+
 
 " netrw config
 let g:netrw_localrmdir='rm -rf'
