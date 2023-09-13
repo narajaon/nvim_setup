@@ -45,7 +45,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
 
   " auto completion
-  Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " use fzf preview for coc-vim
   Plug 'antoinemadec/coc-fzf'
